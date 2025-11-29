@@ -1,0 +1,220 @@
+html {
+  font-size: 100%;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+input, button {
+  max-width: 100%;
+}
+
+*{ margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Verdana, sans-serif;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho e rodapé */
+header{
+  background-color: #0056b3;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+header span{
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Layout principal */
+main{
+  display: flex;
+  flex: 1;
+}
+
+/* Aside lateral esq */
+.conteudo aside {  
+   display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 2rem;
+    justify-content: center;
+    width: 25%;
+    background-color: #f0eeee;
+    color: #000;
+}
+
+/* Aside título*/
+aside h1 {
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+/*Aside segundo texto*/
+aside h2 {
+    font-size: 25px;
+    padding: 20px;
+
+    /*tipografia*/
+    color: #000;
+    text-align: center;
+    align-items: center;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+aside button{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 20%;
+  background-color: transparent, 0.5 ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+
+}
+
+aside button:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #0056b3; 
+}
+
+/* Conteúdo principal */
+.Cadastro{
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 5px;
+  margin-left: 50px;
+}
+
+.Cadastro h1{
+  display: block;
+  width: 80%;
+  height: 80px;
+  flex-shrink: 0;
+  align-items: center;
+  line-height: normal;
+
+  /*tipografia*/
+  color: #000;
+  text-align: center;
+  font-size: 30px;
+  font-weight: auto;
+  line-height: normal;
+}
+
+.Cadastro input{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  width: 80%;
+  padding: 20px 10px;
+  margin-bottom: 60px;
+  text-align: center;
+  transition: 0.5s;
+  background-color: transparent;
+  font-size: 100%;
+}
+
+input:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #83afff; /* leve destaque */
+}
+
+input:focus{
+  border-color: #6C9AC9;
+  box-shadow: 0 0 8px (0, 191, 255, 0.4);
+}
+
+/*ERROS (JAVASCRIPT*/
+.error p{
+  margin: 5px 0;
+}
+
+.error p::first-letter{
+  text-transform: uppercase;
+}
+
+/* Rodapé fixo no fim */
+footer{
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Para telas menores que 1024px (tablets) */
+  @media (max-width: 1023px) and (min-width: 768px)
+{
+
+.conteudo aside {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  
+  aside h1, aside h2, .Cadastro h1 {
+    font-size: 1.5rem;
+  }
+
+  aside button{
+    margin-bottom: 20px;
+  }
+
+  .Cadastro input {
+    width: 100%;
+  }
+}
+
+/* Para telas menores que 768px (smartphones) */
+@media (max-width: 767px){
+  main {
+    flex-direction: column;
+}
+
+  .Cadastro {
+    width: 100%;
+    float: none;
+    align-content: center;
+    margin-left: 30px;
+}
+
+  .Cadastro input {
+    width: 80%;
+  }
+
+  .conteudo aside {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  
+  aside h1, aside h2, .Cadastro h1 {
+    font-size: 1.5rem;
+  }
+
+  aside button{
+    margin-bottom: 20px;
+  }
+}

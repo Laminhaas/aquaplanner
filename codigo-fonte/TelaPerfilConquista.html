@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaPlanner - Perfil</title>
+    <link rel="stylesheet" href="TelaPerfilConquistas.style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <img 
+            src="imgs/logo.png" 
+            alt="Logo AquaPlanner" 
+            class="logo"
+        >
+        <h1>AquaPlanner</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <img src="imgs/dashboard.png" class="icon">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="RegistrodeConsumo.HTML">
+                        <img src="imgs/drop.png" class="icon">
+                        Registro de Consumo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="TelaDicas.html">
+                        <img src="imgs/idea.png" class="icon">
+                        Dicas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="TelaGraficos.html">
+                        <img src="imgs/trend.png" class="icon">
+                        Gráficos de Consumo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ImpactoAmbiental.HTML">
+                        <img src="imgs/carbon-footprint.png" class="icon">
+                        Impacto Ambiental
+                    </a>
+                </li>
+
+                <li>
+                    <a href="TelaChat.html">
+                        <img src="imgs/chat.png" class="icon">
+                        Chat
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo Geral -->
+        <section class="conteudo">
+
+            <!-- Perfil do Usuário -->
+            <div class="perfil">
+
+                <div class="perfil-info">
+                    <img 
+                        src="imgs/user.png" 
+                        alt="Foto do usuário"
+                        class="foto-usuario"
+                    >
+
+                    <h2 id="nomeUsuario">Nome do usuário</h2>
+                    <p id="emailUsuario">usuario@mail.com</p>
+
+                    <button id="btnEditar">Editar Perfil</button>
+                </div>
+
+                <div class="perfil-texto">
+                    <h3>Vigia de torneira</h3>
+                    <p>
+                        Parabéns! Você se tornou um Vigia de torneira! 
+                        Sua atenção está ajudando a evitar desperdícios 
+                        e garantir que cada gota conte. Continue firme nessa missão!
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Conquistas + Barra de progresso -->
+            <div class="conquistas">
+                <h2>Economizando 20L por semana</h2>
+                <h3>Conquistas</h3>
+
+                <div class="icones-conquistas">
+                    <div class="conquista" id="conquista1">
+                        <img src="imgs/medal (1).png" alt="Vigia de torneira">
+                        <p>Vigia de torneira</p>
+                    </div>
+
+                    <div class="conquista" id="conquista2">
+                        <img src="imgs/trophy (1).png" alt="Sentinela da água">
+                        <p>Sentinela da água</p>
+                    </div>
+
+                    <div class="conquista" id="conquista3">
+                        <img src="imgs/trophy.png" alt="Mago da sustentabilidade">
+                        <p>Mago da sustentabilidade</p>
+                    </div>
+                </div>
+
+                <div class="barra-progresso">
+                    <div class="progresso"></div>
+                </div>
+            </div>
+
+            <!-- Mensagens e desafios -->
+            <div class="mensagens">
+
+                <div class="mensagem-estimulo">
+                    <h3>Mensagem de Estímulo</h3>
+                    <p>
+                        Você já é um <strong>Vigia de torneira</strong>, 
+                        um verdadeiro guardião contra o desperdício!
+                    </p>
+                    <p>
+                        Continue firme e dê o próximo passo nessa jornada sustentável!
+                    </p>
+                </div>
+
+                <div class="desafio-especial">
+                    <h3>Desafio Especial</h3>
+                    <p><strong>Próximo passo:</strong> Sentinela da água</p>
+                    <ul>
+                        <li>Registrar cada atitude sustentável</li>
+                        <li>Compartilhar uma dica com um amigo</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>© Copyright 2025 AquaPlanner | Todos os direitos reservados</p>
+    </footer>
+
+    <script src="TelaPerfilConquistas.script.js"></script>
+</body>
+</html>

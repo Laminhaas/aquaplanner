@@ -1,0 +1,268 @@
+document.addEventListener('DOMContentLoaded', function() {
+const localStorageKeys = {
+        diario: 'consumo_diario_fallback', 
+        semanal: 'consumo_semanal_fallback',
+        mensal: 'consumo_mensal_fallback',
+        registros: 'aquaRegistros' 
+    };
+
+    const META_DIARIA_LITROS = 120; 
+    const elementoMetaValor = document.querySelector('.goal-value'); 
+
+    const dadosDiarioPadrao = [65, 59, 80, 81, 56, 55, 40, 70, 60];
+    const dadosSemanalPadrao = [450, 500, 480, 510, 475, 520, 300, 490, 440, 200];
+    const dadosMensalPadrao = [2200, 1850, 2000, 1950, 3000, 2050, 2000, 1900, 1980, 2050, 2150, 1800];
+    
+    function obterDadosDoLocalStorage(chave, dadosPadrao) {
+        const dadosSalvos = localStorage.getItem(chave);
+        if (dadosSalvos) {
+            try {
+                return JSON.parse(dadosSalvos);
+            } catch (e) {
+                console.error(`Erro ao analisar dados do localStorage (${chave}). Usando padrão.`, e);
+                return dadosPadrao;
+            }
+        }
+        return dadosPadrao;
+    }
+
+    function salvarDadosIniciais() {
+        if (!localStorage.getItem(localStorageKeys.diario)) {
+            localStorage.setItem(localStorageKeys.diario, JSON.stringify(dadosDiarioPadrao));
+            localStorage.setItem(localStorageKeys.semanal, JSON.stringify(dadosSemanalPadrao));
+            localStorage.setItem(localStorageKeys.mensal, JSON.stringify(dadosMensalPadrao));
+        }
+    }
+    
+    function carregarRegistrosUsuario() {
+        const dadosSalvos = localStorage.getItem(localStorageKeys.registros);
+        if (dadosSalvos) {
+            try {
+                return JSON.parse(dadosSalvos);
+            } catch (e) {
+                console.error("Erro ao carregar registros do usuário.", e);
+                return []; 
+            }
+        }
+        return [];
+    }
+    
+    function processarDadosMensaisParaGrafico(registros) {
+        const consumoPorMes = new Array(12).fill(0); 
+
+        registros.forEach(registro => {
+            if (registro.data && registro.litros) {
+                const dataRegistro = new Date(registro.data + "T00:00:00"); 
+                const mes = dataRegistro.getMonth(); 
+                const litros = Number(registro.litros);
+                
+                if (!isNaN(litros) && mes >= 0 && mes <= 11) {
+                    consumoPorMes[mes] += litros;
+                }
+            }
+        });
+        return consumoPorMes;
+    }
+
+    function processarDadosDiariosParaGrafico(registros) {
+        const registrosValidos = registros
+            .filter(r => r.data && r.litros && !isNaN(Number(r.litros)))
+            .sort((a, b) => new Date(b.data) - new Date(a.data));
+
+        const ultimosRegistros = registrosValidos.slice(0, 9);
+        
+        return ultimosRegistros.map(r => Number(r.litros)).reverse();
+    }
+    
+    function calcularConsumoDiaMaisRecente(registros) {
+        if (registros.length === 0) {
+            return 0;
+        }
+
+        const registrosValidos = registros
+            .filter(r => r.data && r.litros && !isNaN(Number(r.litros)));
+            
+        if (registrosValidos.length === 0) {
+            return 0;
+        }
+
+        registrosValidos.sort((a, b) => new Date(b.data) - new Date(a.data));
+        const dataMaisRecente = registrosValidos[0].data; 
+
+        let consumoTotal = 0;
+
+        registrosValidos.forEach(registro => {
+            if (registro.data === dataMaisRecente) {
+                consumoTotal += Number(registro.litros);
+            }
+        });
+
+        return consumoTotal;
+    }
+
+    function atualizarCardMeta(consumo, meta) {
+        const goalCard = document.querySelector('.goal-card .goal-content');
+        if (!goalCard) return;
+
+        if (elementoMetaValor) {
+            elementoMetaValor.textContent = `${meta} L`;
+        }
+
+        let statusClass = 'status-ok';
+        let statusMensagem = `Consumo Real: ${consumo} L`;
+
+        if (consumo > meta) {
+            statusClass = 'status-excedido';
+            statusMensagem = `Consumo Excedido! (${consumo} L)`;
+        } else if (consumo > meta * 0.90) { 
+            statusClass = 'status-atencao';
+        }
+
+        let statusElement = document.getElementById('goal-status');
+        if (!statusElement) {
+            statusElement = document.createElement('p');
+            statusElement.id = 'goal-status';
+            goalCard.appendChild(statusElement);
+        }
+        
+        statusElement.textContent = statusMensagem;
+        statusElement.classList.remove('status-ok', 'status-atencao', 'status-excedido');
+        statusElement.classList.add(statusClass);
+    }
+
+    salvarDadosIniciais();
+    const registrosBrutos = carregarRegistrosUsuario();
+    const dadosDiariosProcessados = processarDadosDiariosParaGrafico(registrosBrutos);
+    const dadosMensaisProcessados = processarDadosMensaisParaGrafico(registrosBrutos);
+    const consumoHoje = calcularConsumoDiaMaisRecente(registrosBrutos);
+    atualizarCardMeta(consumoHoje, META_DIARIA_LITROS);
+    
+    
+    const dadosConsumoDiario = (dadosDiariosProcessados.length > 0)
+        ? dadosDiariosProcessados 
+        : obterDadosDoLocalStorage(localStorageKeys.diario, dadosDiarioPadrao);
+
+    const dadosConsumoSemanal = obterDadosDoLocalStorage(localStorageKeys.semanal, dadosSemanalPadrao);
+    
+    const dadosConsumoMensal = (dadosMensaisProcessados.some(v => v > 0)) 
+        ? dadosMensaisProcessados 
+        : obterDadosDoLocalStorage(localStorageKeys.mensal, dadosMensalPadrao);
+    
+   
+function showChartFromHash() {
+let hash = window.location.hash;
+document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+wrapper.classList.remove('active');
+
+});
+
+document.querySelectorAll('.submenu li').forEach(li => {
+li.classList.remove('active-submenu');
+
+});
+
+if (!hash || hash === '#') {
+document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+wrapper.classList.add('active');
+
+});
+
+} else {
+try {
+const activeChart = document.querySelector(hash);
+
+if (activeChart) {
+activeChart.classList.add('active');
+
+}
+
+const activeLink = document.querySelector(`.submenu a[href="${hash}"]`);
+
+if (activeLink) {
+activeLink.closest('li').classList.add('active-submenu');
+
+}
+
+} catch (e) {
+console.error("Gráfico não encontrado:", hash);
+
+}
+
+}
+
+}
+
+    const corGrafico = '#004a9e';
+    const corBorda = '#004a9e';
+    const opcoesPadrao = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: 'Consumo (Litros)' }
+            },
+            
+        },
+        plugins: {
+            legend: { display: false }
+        }
+    };
+
+    const ctxDiario = document.getElementById('graficoDiario');
+    if (ctxDiario) {
+        new Chart(ctxDiario, {
+            type: 'bar',
+            data: {
+                labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9'],
+                datasets: [{
+                    label: 'Consumo (Litros)',
+                    data: dadosConsumoDiario,
+                    backgroundColor: corGrafico,
+                    borderColor: corBorda,
+                    borderWidth: 1
+                }]
+            },
+            options: opcoesPadrao
+        });
+    }
+
+    const ctxSemanal = document.getElementById('graficoSemanal');
+    if (ctxSemanal) {
+        new Chart(ctxSemanal, {
+            type: 'bar',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9', 'Semana 10'],
+                datasets: [{
+                    label: 'Consumo (Litros)',
+                    data: dadosConsumoSemanal,
+                    backgroundColor: corGrafico,
+                    borderColor: corBorda,
+                    borderWidth: 1
+                }]
+            },
+            options: opcoesPadrao
+        });
+    }
+
+    const ctxMensal = document.getElementById('graficoMensal');
+    if (ctxMensal) {
+        new Chart(ctxMensal, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                datasets: [{
+                    label: 'Consumo (Litros)',
+                    data: dadosConsumoMensal,
+                    backgroundColor: corGrafico,
+                    borderColor: corBorda,
+                    borderWidth: 1
+                }]
+            },
+            options: opcoesPadrao
+        });
+    }
+
+    showChartFromHash();
+    window.addEventListener('hashchange', showChartFromHash);
+});

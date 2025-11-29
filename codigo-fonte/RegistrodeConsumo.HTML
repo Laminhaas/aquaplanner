@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="with=device-with, initial-scale=1.0">
+  <link rel="stylesheet"  href="RegistrodeConsumo.CSS">
+  <meta name="author" content="rommel">
+  <title> Registre Seu Consumo </title>
+</head>
+<body>
+  <script src="consumo.js"> </script>
+  <header>
+<aside class="barra">
+   <nav class="barra-nav">
+     <div class="login"> 
+       <img src="imgs/logo.png" alt="logo" class="logo">
+       <h1 class="apresentacao">AquaPlanner</h1> 
+     </div>
+     <a href="TelaPerfilConquista.html" class="nav-item">
+      <img src="imgs/image.png" alt="icone usuario">
+      Perfil
+    </a>
+    <a href="dashboard.html" class="nav-item">
+      <img src="imgs/dashboard.png" alt="icone impacto">
+      Dashboard
+    </a>
+    <a href="TelaGraficos.html" class="nav-item">
+      <img src="imgs/loss.png" alt="icone metas">
+       Metas
+    </a> 
+  <a href="ImpactoAmbiental.html" class="nav-item"> 
+    <img src="imgs/carbon-footprint.png">
+    Seu Impacto Ambiental </a>
+   </nav> 
+ </header>
+</aside> 
+  <main class="user"> </main>
+  <section> <img src="imgs/drop.png"> </section> 
+  <legend>
+  <form id="ConsumoForm">
+  <fieldset>
+    <label for="data"> Data :</label><br>
+    <input id="data" placeholder="Data"  type="date" name="date"> <br> <br>
+  </fieldset>
+  <fieldset> 
+    <label for="litros"> Litros:</label> <br>
+    <input id="litros" placeholder="Ex: 2500" type="number" name="number"> <br> 
+  </fieldset>    
+  <fieldset> 
+  <label  for="consumo"> Especifique Seu Consumo </label> <br>
+      <select id="tipoConsumo" name="consumo" > 
+      <option value="selecione"> Selecione...</option>
+      <option value="mensal"> Mensal </option>
+      <option value="semestral"> Semestral </option>
+      <option value="diario"> Diário </option>
+    </select>
+   </fieldset>
+  <br>
+</legend> <br>
+</form>
+<button type="submit"> Registrar</button><br>
+<footer> <p><h6> © Copyright 2025 AquaPlanner - Todos os direitos reservados.</h6></p>
+</footer>
+</body>
+</html>

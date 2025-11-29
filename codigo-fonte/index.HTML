@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 max-scale: 1.0">
+    <title>AquaPlanner</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+    <header>
+        <div>
+        <h2><img src="imgs/logo.png" alt="imagem_logo">AquaPlanner</h2>
+        </div>
+    </header>
+<body>
+    <form>
+        <div>
+            <img src="imgs/image.png" alt="imagem-perfil"><br>
+        </div>
+        <div>
+            <label for=""> Login </label> <input type="text" id="login" name="login" maxlength="32" placeholder="Digite seu E-mail aqui">
+        </div>
+        <div>
+            <label for=""> Senha </label><input type="password" id="senha" name="senha" maxlength="15" placeholder="Digite sua senha aqui">
+        </div>
+        <div>
+            <a href="recuperaSenha.html"><label id="esqueciSenha" for="">Esqueceu a senha?</label></a>
+        </div>
+        <div>
+            <button id="btnLogar" type="button">Login</button> <!--Type ta como "button" e não como "submit" pq tava recarregando a página assim que o formulário era enviado, impedindo o redirecionamento para a tela de homepage-->
+        </div>
+        <div>
+            <Label for=""> Não tem uma conta? </Label><a href="cadastro.html">Inscreva-se</a>
+        </div>
+    </form>
+
+    <footer class="centralizar">® Copyrigth 2025 AquaPlanner | Todos os direitos reservados.</footer>
+    <script src="Login.js"></script>
+
+</body>
+</html>

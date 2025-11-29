@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <script defer src="dashboard.js"></script>
+  
+
+    <style> 
+        ul{
+            list-style: none;
+            margin: 0%;
+            padding: 0%;
+        }
+    </style>
+    <link rel="Icon" href="imgs/dashboard(1).png">
+    <title>Dashboard</title>
+</head>
+
+<body>
+   
+    <!--Menu de navegação-->
+    <header class="main-header">
+        <div class="logo-area">
+            <img width="40" height="40" src="imgs/AQUA_LOGO-removebg-preview.png" alt="AquaPlanner Logo">
+            <span>AquaPlanner</span>
+        </div>
+
+        <nav class="top-nav">
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.HTML">Faça seu login</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle">
+        <img width="25" height="25"src="imgs/burger-bar.png" alt="Home"></button>
+    </header>
+
+    <!--Barra Lateral-->
+<main>
+    <aside class="sidebar">
+        <h1>Controle de Consumo</h1>
+
+        <nav class="side-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <span><img width="45" height="45" src="imgs/dashboard.png" alt="Dashboard"></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="RegistrodeConsumo.HTML">
+                        <span><img width="45" height="45" src="imgs/drop.png" alt="drop"></span>
+                        <span>Registro de consumo</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="TelaDicas.html">
+                        <span><img width="45" height="45" src="imgs/idea.png" alt="dicas"></span>
+                        <span>Dicas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="TelaGraficos.html">
+                        <span><img width="45" height="45" src="imgs/trend.png" alt="gráfico"></span>
+                        <span>Gráficos de consumo</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ImpactoAmbiental.HTML">
+                        <span><img width="50" height="50" src="imgs/carbon-footprint.png" alt="folha"></span>
+                        <span>Impacto Ambiental</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="TelaPerfilConquista.html">
+                        <span><img width="45" height="45" src="imgs/user.png" alt="usuário"></span>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+
+            </ul>
+            </nav>
+            
+    </aside>
+
+        <div class="dashboard" id="dashboard">
+            <header class="title">
+                <h1>DASHBOARD</h1>
+                <h2>Consumo de água</h2>
+            </header>
+            
+            <!--Grid Cards-->
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card title 1" id="cardTitle">No mês atual</div>
+                    <div class="card-value" id="mesRecente"></div>
+                </div>
+
+                <div class="card-2">
+                    <img width="50" height="50" src="imgs/loss.png" alt="gráfico decaindo">
+                    <div class="card-value 2" id="porcentagem"></div>
+                    <span class="card-change" id="cardTitle2">em relação ao mês anterior</span>
+                </div>
+
+                <div class="card-4">
+                    <div class="card title">Consumo Médio</div>
+                    <span class="card value" id="consumoMedio"><strong>250 L</strong></span>
+                </div>
+                
+                 <div class="card-tips">
+                    <img width="50" height="50" src="imgs/idea.png" alt="dicas">
+                    <div class="tips-title"><strong>DICA DO DIA!</strong></div>
+                    <div class="tips-value" id="dicasDiarias">Evite tomar banhos longos.</div>
+                 </div>
+                 
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy Copyright 2025 AquaPlanner-Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
