@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaPlanner - Perfil</title>
-    <link rel="stylesheet" href="TelaPerfilConquistas.style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header class="topo">
         <img 
-            src="imgs/logo.png" 
+            src="imags/save.png" 
             alt="Logo AquaPlanner" 
             class="logo"
         >
@@ -20,54 +21,72 @@
 
     <main class="container">
 
-        <!-- Barra lateral -->
-        <aside class="sidebar">
-            <ul>
-                <li>
-                    <a href="dashboard.html">
-                        <img src="imgs/dashboard.png" class="icon">
-                        Dashboard
-                    </a>
-                </li>
+        <!-- ==================== BARRA LATERAL NOVA ==================== -->
+        <aside class="sidebar">    
+            <nav class="side-nav">
+                <ul>
 
-                <li>
-                    <a href="RegistrodeConsumo.HTML">
-                        <img src="imgs/drop.png" class="icon">
-                        Registro de Consumo
-                    </a>
-                </li>
+                    <li>
+                        <a href="dashboard.html">
+                            <span><img width="40" height="40" src="imags/dashboard.png" alt=""></span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="TelaDicas.html">
-                        <img src="imgs/idea.png" class="icon">
-                        Dicas
-                    </a>
-                </li>
+                    <li>
+                        <a href="RegistrodeConsumo.html">
+                            <span><img width="45" height="45" src="imags/drop.png" alt=""></span>
+                            <span>Registro de consumo</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="TelaGraficos.html">
-                        <img src="imgs/trend.png" class="icon">
-                        Gráficos de Consumo
-                    </a>
-                </li>
+                    <li>
+                        <a href="TelaDicas.html">
+                            <span><img width="40" height="40" src="imags/idea.png" alt=""></span>
+                            <span>Dicas</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="ImpactoAmbiental.HTML">
-                        <img src="imgs/carbon-footprint.png" class="icon">
-                        Impacto Ambiental
-                    </a>
-                </li>
+                    <li>
+                        <a href="TelaGraficos.html">
+                            <span><img width="40" height="40" src="imags/loss.png" alt=""></span>
+                            <span>Gráficos de Consumo</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="TelaChat.html">
-                        <img src="imgs/chat.png" class="icon">
-                        Chat
-                    </a>
-                </li>
-            </ul>
+                    <li>
+                        <a href="ImpactoAmbiental.html">
+                            <span><img width="45" height="45" src="imags/carbon-footprint.png" alt=""></span>
+                            <span>Impacto Ambiental</span>
+                        </a>
+                    </li>
+
+                    <!-- ===== CHAT ADICIONADO ===== -->
+                    <li>
+    <a href="/Aquachat/index.html">
+        <span>
+            <img width="45" height="45" src="imags/chat.png" alt="">
+        </span>
+        <span>Chat</span>
+    </a>
+</li>
+
+                    <!-- PERFIL COMO ITEM ATIVO NESTA TELA -->
+                    <li class="active">
+                        <a href="TelaPerfilConquista.html">
+                            <span><img width="45" height="45" src="imags/user.png" alt=""></span>
+                            <span>Perfil</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
         </aside>
+        <!-- ==================== FIM DA BARRA LATERAL ==================== -->
 
-        <!-- Conteúdo Geral -->
+
+
+        <!-- ==================== CONTEÚDO GERAL ==================== -->
         <section class="conteudo">
 
             <!-- Perfil do Usuário -->
@@ -75,7 +94,7 @@
 
                 <div class="perfil-info">
                     <img 
-                        src="imgs/user.png" 
+                        src="imags/user.png" 
                         alt="Foto do usuário"
                         class="foto-usuario"
                     >
@@ -104,17 +123,17 @@
 
                 <div class="icones-conquistas">
                     <div class="conquista" id="conquista1">
-                        <img src="imgs/medal (1).png" alt="Vigia de torneira">
+                        <img src="imags/medal (1).png" alt="Vigia de torneira">
                         <p>Vigia de torneira</p>
                     </div>
 
                     <div class="conquista" id="conquista2">
-                        <img src="imgs/trophy (1).png" alt="Sentinela da água">
+                        <img src="imags/trophy (1).png" alt="Sentinela da água">
                         <p>Sentinela da água</p>
                     </div>
 
                     <div class="conquista" id="conquista3">
-                        <img src="imgs/trophy.png" alt="Mago da sustentabilidade">
+                        <img src="imags/trophy.png" alt="Mago da sustentabilidade">
                         <p>Mago da sustentabilidade</p>
                     </div>
                 </div>
@@ -157,6 +176,6 @@
         <p>© Copyright 2025 AquaPlanner | Todos os direitos reservados</p>
     </footer>
 
-    <script src="TelaPerfilConquistas.script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

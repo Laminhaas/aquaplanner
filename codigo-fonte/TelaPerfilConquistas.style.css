@@ -6,10 +6,18 @@
   font-family: Verdana, Arial, sans-serif;
 }
 
+/* >>> AJUSTE PARA TELA CHEIA <<< */
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #7AA3CD;
   color: #333;
   font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* TOPO */
@@ -31,43 +39,57 @@ body {
 /* CONTAINER GERAL */
 .container {
   display: flex;
-  min-height: 90vh;
+  flex: 1;
   flex-wrap: wrap;
 }
 
-/* BARRA LATERAL */
+/* ======================================= */
+/*     BARRA LATERAL NOVA (DA SUA AMIGA)   */
+/* ======================================= */
+
 .sidebar {
-  background-color: #0056b3;
-  width: 220px;
-  min-height: 100vh;
-  padding: 20px;
+  width: 260px;
+  background-color: #004a9e;
+  color: #ffffff;
+  padding: 1.5rem 1rem;
 }
 
-.sidebar ul {
+.side-nav ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.sidebar li {
+.side-nav a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-  padding: 8px;
-  border-radius: 8px;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
 }
 
-.sidebar li:hover {
-  background-color: #6dbfb2;
+/* Ícone dentro do menu */
+.side-nav a > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sidebar .icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
+.side-nav a:hover {
+  background-color: #0056b3;
+}
+
+/* Item ativo */
+.side-nav li.active > a,
+.sidebar li.ativo > a {
+  background-color: #ffffff;
+  color: #004a9e !important;
+  font-weight: bold;
 }
 
 /* CONTEÚDO PRINCIPAL */
@@ -92,6 +114,7 @@ body {
   text-align: center;
   flex: 1;
   min-width: 250px;
+  color: white;
 }
 
 .perfil-info .foto-usuario {
@@ -165,7 +188,6 @@ body {
   margin-top: 10px;
 }
 
-/* Efeito quando nível máximo */
 .pulse {
   animation: pulseEffect 0.7s ease-in-out alternate infinite;
 }
@@ -209,50 +231,33 @@ body {
   font-size: 12px;
 }
 
-/* RESPONSIVIDADE – TABLETS */
-@media (max-width: 1024px) {
-  .icones-conquistas {
-    justify-content: center;
-    gap: 30px;
-  }
-  .conquista img {
-    width: 50px;
-    height: 50px;
-  }
-  .sidebar {
-    width: 180px;
-  }
-}
+/* ======================================= */
+/*     RESPONSIVIDADE DA BARRA LATERAL     */
+/* ======================================= */
 
-/* RESPONSIVIDADE – CELULARES MÉDIOS */
 @media (max-width: 768px) {
+
   .container {
     flex-direction: column;
   }
 
   .sidebar {
     width: 100%;
-    min-height: auto;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    height: auto;
+    padding: 1rem;
   }
 
-  .sidebar ul {
+  .side-nav ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px 24px;
-    width: 100%;
+    justify-content: space-around;
+    gap: 0.5rem;
   }
 
-  .sidebar li {
+  .side-nav a {
     flex-direction: column;
-    align-items: center;
-    font-size: 12px;
-    margin: 0;
-    width: 90px;
-    text-align: center;
+    font-size: 0.85rem;
+    padding: 0.6rem;
   }
 
   .conteudo {
@@ -276,67 +281,31 @@ body {
 /* RESPONSIVIDADE – CELULARES PEQUENOS */
 @media (max-width: 480px) {
 
-  /* Menu vira grade (3 por linha) */
-  .sidebar ul {
+  .side-nav ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px 4px;
     justify-items: center;
   }
 
-  .sidebar li {
-    width: 100%;
+  .side-nav a {
+    font-size: 0.75rem;
   }
 
-  /* Conquistas */
-  .icones-conquistas {
-    flex-direction: column;
-    align-items: center;
+  .perfil-info button {
+    font-size: 12px;
   }
 
   .conquista img {
     width: 40px;
     height: 40px;
   }
-
-  .perfil-info button {
-    font-size: 12px;
-  }
 }
 
-/* Item ativo na sidebar */
+/* Item ativo (compatibilidade extra) */
 .sidebar li.ativo {
   background-color: #6dbfb2;
   font-weight: bold;
-}
-
-/* Menu de edição */
-.menu-edicao {
-  display: none;
-  margin-top: 10px;
-  padding: 10px;
-  background: #f2f2f2;
-  border-radius: 8px;
-}
-
-/* Botões do menu de edição */
-.opcao-edicao {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  background-color: #7AA3CD;
-  color: #000;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.opcao-edicao:hover {
-  background-color: #ffffff;
-  transform: translateY(-1px);
 }
 
 /* Conquista ativa */
