@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaPlanner - Perfil</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS CORRETO -->
+    <link rel="stylesheet" href="TelaPerfilConquistas.style.css">
 </head>
 
 <body>
@@ -21,7 +23,7 @@
 
     <main class="container">
 
-        <!-- ==================== BARRA LATERAL NOVA ==================== -->
+        <!-- ==================== BARRA LATERAL ==================== -->
         <aside class="sidebar">    
             <nav class="side-nav">
                 <ul>
@@ -61,17 +63,13 @@
                         </a>
                     </li>
 
-                    <!-- ===== CHAT ADICIONADO ===== -->
                     <li>
-    <a href="/Aquachat/index.html">
-        <span>
-            <img width="45" height="45" src="imags/chat.png" alt="">
-        </span>
-        <span>Chat</span>
-    </a>
-</li>
+                        <a href="Aquachat/index.html">
+                            <span><img width="45" height="45" src="imags/chat.png" alt=""></span>
+                            <span>Chat</span>
+                        </a>
+                    </li>
 
-                    <!-- PERFIL COMO ITEM ATIVO NESTA TELA -->
                     <li class="active">
                         <a href="TelaPerfilConquista.html">
                             <span><img width="45" height="45" src="imags/user.png" alt=""></span>
@@ -85,11 +83,10 @@
         <!-- ==================== FIM DA BARRA LATERAL ==================== -->
 
 
-
         <!-- ==================== CONTEÚDO GERAL ==================== -->
         <section class="conteudo">
 
-            <!-- Perfil do Usuário -->
+            <!-- Perfil -->
             <div class="perfil">
 
                 <div class="perfil-info">
@@ -116,7 +113,7 @@
 
             </div>
 
-            <!-- Conquistas + Barra de progresso -->
+            <!-- Conquistas -->
             <div class="conquistas">
                 <h2>Economizando 20L por semana</h2>
                 <h3>Conquistas</h3>
@@ -143,7 +140,7 @@
                 </div>
             </div>
 
-            <!-- Mensagens e desafios -->
+            <!-- Mensagens -->
             <div class="mensagens">
 
                 <div class="mensagem-estimulo">
