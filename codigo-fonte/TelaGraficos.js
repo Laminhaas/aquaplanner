@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-const localStorageKeys = {
+
+    const localStorageKeys = {
         diario: 'consumo_diario_fallback', 
         semanal: 'consumo_semanal_fallback',
         mensal: 'consumo_mensal_fallback',
         registros: 'aquaRegistros' 
     };
 
+    
     const META_DIARIA_LITROS = 120; 
     const elementoMetaValor = document.querySelector('.goal-value'); 
+
 
     const dadosDiarioPadrao = [65, 59, 80, 81, 56, 55, 40, 70, 60];
     const dadosSemanalPadrao = [450, 500, 480, 510, 475, 520, 300, 490, 440, 200];
     const dadosMensalPadrao = [2200, 1850, 2000, 1950, 3000, 2050, 2000, 1900, 1980, 2050, 2150, 1800];
     
+
     function obterDadosDoLocalStorage(chave, dadosPadrao) {
         const dadosSalvos = localStorage.getItem(chave);
         if (dadosSalvos) {
@@ -34,11 +38,19 @@ const localStorageKeys = {
         }
     }
     
+    
     function carregarRegistrosUsuario() {
         const dadosSalvos = localStorage.getItem(localStorageKeys.registros);
         if (dadosSalvos) {
             try {
-                return JSON.parse(dadosSalvos);
+                const registros = JSON.parse(dadosSalvos);
+                
+                return registros.map(registro => ({
+                    timestamp: registro.timestamp || (registro.data ? `${registro.data}T00:00:00` : null),
+                    litros: Number(registro.litros),
+                    tipo: registro.tipo
+                })).filter(r => r.timestamp && !isNaN(r.litros));
+            
             } catch (e) {
                 console.error("Erro ao carregar registros do usuário.", e);
                 return []; 
@@ -51,49 +63,65 @@ const localStorageKeys = {
         const consumoPorMes = new Array(12).fill(0); 
 
         registros.forEach(registro => {
-            if (registro.data && registro.litros) {
-                const dataRegistro = new Date(registro.data + "T00:00:00"); 
-                const mes = dataRegistro.getMonth(); 
-                const litros = Number(registro.litros);
-                
-                if (!isNaN(litros) && mes >= 0 && mes <= 11) {
-                    consumoPorMes[mes] += litros;
-                }
+            const dataRegistro = new Date(registro.timestamp); 
+            const mes = dataRegistro.getMonth(); 
+            const litros = registro.litros;
+            
+            if (!isNaN(litros) && mes >= 0 && mes <= 11) {
+                consumoPorMes[mes] += litros;
             }
         });
         return consumoPorMes;
     }
-
+    
     function processarDadosDiariosParaGrafico(registros) {
-        const registrosValidos = registros
-            .filter(r => r.data && r.litros && !isNaN(Number(r.litros)))
-            .sort((a, b) => new Date(b.data) - new Date(a.data));
-
-        const ultimosRegistros = registrosValidos.slice(0, 9);
+        const consumoPorDia = {};
         
-        return ultimosRegistros.map(r => Number(r.litros)).reverse();
+        registros.forEach(registro => {
+            const dataStr = registro.timestamp.split('T')[0]; 
+            const litros = registro.litros;
+            
+            if (consumoPorDia[dataStr]) {
+                consumoPorDia[dataStr] += litros;
+            } else {
+                consumoPorDia[dataStr] = litros;
+            }
+        });
+
+        const datasOrdenadas = Object.keys(consumoPorDia).sort().reverse();
+        const ultimos9Dias = datasOrdenadas.slice(0, 9).reverse(); 
+
+        const labels = ultimos9Dias.map(dataStr => {
+            const dataParts = dataStr.split('-');
+            return `${dataParts[2]}/${dataParts[1]}`; 
+        });
+        
+        const data = ultimos9Dias.map(dataStr => consumoPorDia[dataStr]);
+
+        return { labels, data };
     }
+    
     
     function calcularConsumoDiaMaisRecente(registros) {
         if (registros.length === 0) {
             return 0;
         }
 
-        const registrosValidos = registros
-            .filter(r => r.data && r.litros && !isNaN(Number(r.litros)));
-            
-        if (registrosValidos.length === 0) {
+        const registrosOrdenados = [...registros].sort((a, b) => 
+            new Date(b.timestamp) - new Date(a.timestamp)
+        );
+
+        if (registrosOrdenados.length === 0) {
             return 0;
         }
 
-        registrosValidos.sort((a, b) => new Date(b.data) - new Date(a.data));
-        const dataMaisRecente = registrosValidos[0].data; 
+        const dataMaisRecenteStr = registrosOrdenados[0].timestamp.split('T')[0]; 
 
         let consumoTotal = 0;
 
-        registrosValidos.forEach(registro => {
-            if (registro.data === dataMaisRecente) {
-                consumoTotal += Number(registro.litros);
+        registrosOrdenados.forEach(registro => {
+            if (registro.timestamp.startsWith(dataMaisRecenteStr)) {
+                consumoTotal += registro.litros;
             }
         });
 
@@ -126,21 +154,30 @@ const localStorageKeys = {
         }
         
         statusElement.textContent = statusMensagem;
+        
         statusElement.classList.remove('status-ok', 'status-atencao', 'status-excedido');
         statusElement.classList.add(statusClass);
     }
 
+
     salvarDadosIniciais();
+
     const registrosBrutos = carregarRegistrosUsuario();
-    const dadosDiariosProcessados = processarDadosDiariosParaGrafico(registrosBrutos);
+
+    const dadosDiariosProcessadosObj = processarDadosDiariosParaGrafico(registrosBrutos);
     const dadosMensaisProcessados = processarDadosMensaisParaGrafico(registrosBrutos);
+    
     const consumoHoje = calcularConsumoDiaMaisRecente(registrosBrutos);
     atualizarCardMeta(consumoHoje, META_DIARIA_LITROS);
     
-    
-    const dadosConsumoDiario = (dadosDiariosProcessados.length > 0)
-        ? dadosDiariosProcessados 
+    const dadosConsumoDiario = (dadosDiariosProcessadosObj.data.length > 0)
+        ? dadosDiariosProcessadosObj.data 
         : obterDadosDoLocalStorage(localStorageKeys.diario, dadosDiarioPadrao);
+        
+    const labelsDiarios = (dadosDiariosProcessadosObj.labels.length > 0)
+        ? dadosDiariosProcessadosObj.labels
+        : ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9'];
+
 
     const dadosConsumoSemanal = obterDadosDoLocalStorage(localStorageKeys.semanal, dadosSemanalPadrao);
     
@@ -149,48 +186,47 @@ const localStorageKeys = {
         : obterDadosDoLocalStorage(localStorageKeys.mensal, dadosMensalPadrao);
     
    
-function showChartFromHash() {
-let hash = window.location.hash;
-document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
-wrapper.classList.remove('active');
+    function showChartFromHash() {
 
-});
+        let hash = window.location.hash;
 
-document.querySelectorAll('.submenu li').forEach(li => {
-li.classList.remove('active-submenu');
+        document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+            wrapper.classList.remove('active');
+        });
 
-});
+        document.querySelectorAll('.submenu li').forEach(li => {
+            li.classList.remove('active-submenu');
+        });
+       
+        document.querySelectorAll('.has-submenu').forEach(item => {
+             item.classList.remove('active');
+        });
 
-if (!hash || hash === '#') {
-document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
-wrapper.classList.add('active');
+        if (!hash || hash === '#') {
+            document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+                wrapper.classList.add('active');
+            });
 
-});
+        } else {
 
-} else {
-try {
-const activeChart = document.querySelector(hash);
+            try {
+                const activeChart = document.querySelector(hash);
+                if (activeChart) {
+                    activeChart.classList.add('active');
+                }
 
-if (activeChart) {
-activeChart.classList.add('active');
-
-}
-
-const activeLink = document.querySelector(`.submenu a[href="${hash}"]`);
-
-if (activeLink) {
-activeLink.closest('li').classList.add('active-submenu');
-
-}
-
-} catch (e) {
-console.error("Gráfico não encontrado:", hash);
-
-}
-
-}
-
-}
+              
+                const activeLink = document.querySelector(`.submenu a[href*="${hash}"]`); 
+                if (activeLink) {
+                    activeLink.closest('li').classList.add('active-submenu');
+                  
+                    activeLink.closest('.has-submenu').classList.add('active'); 
+                }
+            } catch (e) {
+                console.error("Gráfico não encontrado:", hash);
+            }
+        }
+    }
 
     const corGrafico = '#004a9e';
     const corBorda = '#004a9e';
@@ -214,7 +250,7 @@ console.error("Gráfico não encontrado:", hash);
         new Chart(ctxDiario, {
             type: 'bar',
             data: {
-                labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9'],
+                labels: labelsDiarios, 
                 datasets: [{
                     label: 'Consumo (Litros)',
                     data: dadosConsumoDiario,
@@ -265,4 +301,20 @@ console.error("Gráfico não encontrado:", hash);
 
     showChartFromHash();
     window.addEventListener('hashchange', showChartFromHash);
+    
+
+    const itemGraficos = document.querySelector('.side-nav li.has-submenu');
+
+    if (itemGraficos) {
+        const linkToggle = itemGraficos.querySelector('a');
+
+        linkToggle.addEventListener('click', (e) => {
+         
+            if (linkToggle.getAttribute('href') === '#graficos-toggle' || linkToggle.getAttribute('href') === '#') {
+                e.preventDefault(); 
+            }
+         
+            itemGraficos.classList.toggle('active');
+        });
+    }
 });

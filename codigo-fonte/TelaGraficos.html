@@ -10,15 +10,14 @@
     
     <header class="main-header">
         <div class="logo-area">      
-        <img width="40" height="40" src="imgs/logo.png" alt="Logo">
+        <img width="40" height="40" src="imgs/save.png" alt="Logo">
         <span>AquaPlanner</span>
         </div>
         <nav class="top-nav">
             <ul>
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Cadastro</a></li>
-                <li><a href="#" class="login-button">Faça seu login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="Login.html" class="login-button">Faça seu login</a></li>
             </ul>
         </nav>      
     </header>
@@ -34,8 +33,8 @@
                 </a>
             </li>
             <li>
-                <a href="RegistrodeConsumo.HTML">
-                    <span><img width="40" height="40" src="imgs/drop.png" alt="Registro de Consumo"></span>
+                <a href="RegistrodeConsumo.html">
+                    <span><img width="40" height="40" src="imgs/water-drop.png" alt="Registro de Consumo"></span>
                     <span>Registro de consumo</span>
                 </a>
             </li>
@@ -47,20 +46,39 @@
                 </a>
             </li>
             
-            <li class="active">
-                <a href="TelaGraficos.html">
-                    <span><img width="40" height="40" src="imgs/loss.png" alt="Gráficos de Consumo"></span>
-                    <span>Gráficos de Consumo</span>
-                </a>
-                <ul class="submenu">
-                    <li><a href="#diario">Consumo Diário</a></li>
-                    <li><a href="#semanal">Consumo Semanal</a></li>
-                    <li><a href="#mensal">Consumo Mensal</a></li>
-                </ul>
-            </li>
-
+        <nav class="side-nav">
+    <ul>
+        <li class="has-submenu active"> 
+            <a href="#graficos-toggle">
+                <span><img width="40" height="40" src="imgs/bars.png" alt="Gráficos de Consumo"></span>
+                <span>Gráficos de Consumo</span>
+            </a>
+            
+            <ul class="submenu">
+                <li class="active-submenu"> 
+                    <a href="TelaGraficos.html#diario">
+                        <span>+</span>
+                        <span>Consumo Diário</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="TelaGraficos.html#semanal">
+                        <span>+</span>
+                        <span>Consumo Semanal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="TelaGraficos.html#mensal">
+                        <span>+</span>
+                        <span>Consumo Mensal</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        </ul>
+</nav>
             <li>
-              <a href="ImpactoAmbiental.HTML">
+              <a href="ImpactoAmbiental.html">
                     <span><img width="45" height="45" src="imgs/carbon-footprint.png" alt="Impacto Ambiental"></span>
                     <span>Impacto Ambiental</span>
                 </a>

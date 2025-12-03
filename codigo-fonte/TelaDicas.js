@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltip = document.getElementById('tooltip'); 
 
     if (!container || !tooltip) {
-      
         console.error("ERRO CRÍTICO: Elemento .tips-list-vertical ou #tooltip não foi encontrado no HTML.");
         return; 
     }
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tooltip.innerHTML = `<strong>${details.title}</strong>${details.text}`;
                 tooltip.classList.add('active');
             } else {
-                // Mantido: AVISO, útil para detectar IDs não mapeados
+
                 console.warn('Detalhes NÃO encontrados para a dica:', tipId);
             }
         }
@@ -104,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         loadMoreButton.addEventListener('click', function() {
             if (currentTipIndex < extraTipIDs.length) {
-                // Usa ID do array extraTipIDs (garante consistência)
                 const newTipId = extraTipIDs[currentTipIndex]; 
                 const tipData = tipsDetails[newTipId];
                 
@@ -114,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     newTip.setAttribute('data-tip-id', newTipId);
                     newTip.style.opacity = 0;
                     
+                
                     newTip.innerHTML = `
                         <span><img width="40" height="40" src="${tipData.img}" alt="${tipData.alt}"></span>
                         <p>${tipData.title}</p> 
@@ -155,5 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
     updateProgress();
 });
