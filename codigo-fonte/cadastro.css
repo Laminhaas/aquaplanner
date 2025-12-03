@@ -1,20 +1,16 @@
-html {
-  font-size: 100%;
+*{ margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Verdana, sans-serif;
 }
 
-img{
+img {
   max-width: 100%;
   height: auto;
 }
 
 input, button {
   max-width: 100%;
-}
-
-*{ margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: Verdana, sans-serif;
 }
 
 body{
@@ -106,19 +102,19 @@ aside button:hover{
 }
 
 .Cadastro h1{
-  display: block;
-  width: 80%;
-  height: 80px;
-  flex-shrink: 0;
-  align-items: center;
-  line-height: normal;
+    display: block;
+    width: 80%;
+    height: 80px;
+    flex-shrink: 0;
+    align-items: center;
+    line-height: normal;
 
-  /*tipografia*/
-  color: #000;
-  text-align: center;
-  font-size: 30px;
-  font-weight: auto;
-  line-height: normal;
+/*tipografia*/
+color: #000;
+text-align: center;
+font-size: 30px;
+font-weight: auto;
+line-height: normal;
 }
 
 .Cadastro input{
@@ -127,12 +123,11 @@ aside button:hover{
   gap: 30px;
   border-radius: 10px;
   width: 80%;
-  padding: 20px 10px;
-  margin-bottom: 60px;
+  padding: 7px 10px;
   text-align: center;
   transition: 0.5s;
   background-color: transparent;
-  font-size: 100%;
+  font-size: 80%;
 }
 
 input:hover{
@@ -165,7 +160,9 @@ footer{
 }
 
 /* Para telas menores que 1024px (tablets) */
-  @media (max-width: 1023px) and (min-width: 768px)
+  @media
+  (max-width: 1023px)
+  (min-width: 768px)
 {
 
 .conteudo aside {
@@ -217,4 +214,227 @@ footer{
   aside button{
     margin-bottom: 20px;
   }
+}
+
+/* Ajustes para telas muito altas */
+@media (min-height: 1000px) {
+    body {
+        min-height: 100vh;
+    }
+    
+    .conteudo {
+        min-height: calc(100vh - 140px);
+        align-items: center;
+    }
+}
+
+/* Ajustes para telas muito largas */
+@media (min-width: 2000px) and (max-width: 2559px) {
+    .conteudo {
+        max-width: 1800px;
+    }
+}
+
+/* Para 1440x900 */
+@media (min-width: 1440px) {
+    .conteudo {
+        padding: 70px 50px;
+        gap: 70px;
+        max-width: 1400px;
+    }
+    
+    .Cadastro {
+        padding: 50px 45px;
+        border-radius: 18px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 2.4rem;
+        margin-bottom: 35px;
+    }
+    
+    input {
+        padding: 18px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+    
+    #form {
+        gap: 20px;
+    }
+    
+    aside {
+        padding: 40px;
+        border-radius: 18px;
+    }
+    
+    aside h1 {
+        font-size: 2.2rem;
+    }
+    
+    aside h2 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+    
+    button {
+        padding: 18px 50px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        min-width: 200px;
+    }
+    
+    header {
+        padding: 25px 60px;
+    }
+    
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Para 3840x2160*/
+@media (min-width: 3840px) {
+    .conteudo {
+        padding: 150px 120px;
+        gap: 150px;
+        max-width: 3200px;
+    }
+    
+    .Cadastro {
+        padding: 100px 90px;
+        border-radius: 35px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 4.5rem;
+        margin-bottom: 70px;
+    }
+    
+    input {
+        padding: 35px;
+        font-size: 2rem;
+        border-radius: 15px;
+        border-width: 4px;
+    }
+    
+    #form {
+        gap: 45px;
+    }
+    
+    aside {
+        padding: 90px;
+        border-radius: 35px;
+    }
+    
+    aside h1 {
+        font-size: 4rem;
+        margin-bottom: 30px;
+    }
+    
+    aside h2 {
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+    
+    button {
+        padding: 35px 100px;
+        font-size: 2.2rem;
+        border-radius: 15px;
+        min-width: 400px;
+    }
+    
+    header {
+        padding: 50px 150px;
+    }
+    
+    header img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    header span {
+        font-size: 3.5rem;
+    }
+    
+    footer {
+        padding: 40px;
+        font-size: 1.6rem;
+    }
+    
+    .error {
+        font-size: 1.8rem;
+        padding: 20px;
+    }
+}
+
+
+/* Para 2560x1440 */
+@media (min-width: 2560px) {
+    .conteudo {
+        padding: 100px 80px;
+        gap: 100px;
+        max-width: 2000px;
+    }
+    
+    .Cadastro {
+        padding: 70px 60px;
+        border-radius: 25px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 3.2rem;
+        margin-bottom: 50px;
+    }
+    
+    input {
+        padding: 25px;
+        font-size: 1.4rem;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+    
+    #form {
+        gap: 30px;
+    }
+    
+    aside {
+        padding: 60px;
+        border-radius: 25px;
+    }
+    
+    aside h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    aside h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    button {
+        padding: 25px 70px;
+        font-size: 1.5rem;
+        border-radius: 12px;
+        min-width: 280px;
+    }
+    
+    header {
+        padding: 35px 100px;
+    }
+    
+    header img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    header span {
+        font-size: 2.8rem;
+    }
+    
+    footer {
+        padding: 30px;
+        font-size: 1.2rem;
+    }
 }
