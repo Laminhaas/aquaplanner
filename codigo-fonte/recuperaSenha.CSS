@@ -68,9 +68,9 @@ div label {
 
     form {
     display: grid;
-    width: 50%;
+    width: 400px;
     max-width: 500px;
-    height: 58vh;
+    height: 67vh;
     max-height: 550px;
     padding: 15px;
     border: 15px solid #0056b3;
@@ -91,9 +91,9 @@ div label {
 
     form {
     display: grid;
-    width: 50%;
+    width: 200px;
     max-width: 500px;
-    height: 370px;
+    height: 450px;
     padding: 15px;
     border: 15px solid #0056b3;
     background-color:  #7AA3CD;
