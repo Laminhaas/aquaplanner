@@ -12,7 +12,7 @@ header {
 footer {
     grid-area: Rodapé;
     width: 100%;
-    padding: 24px;
+    padding: 60px;
     background-color: #333;
     font-size: small;
     bottom: 0;
