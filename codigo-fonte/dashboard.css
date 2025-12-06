@@ -282,33 +282,6 @@ footer {
     }
 }
 
-/*Tela 1366 × 768*/
-@media (max-width: 1366px) {
-
-    .sidebar {
-        width: 220px;
-    }
-
-    .dashboard {
-        padding: 15px;
-        max-width: 1100px;
-    }
-
-    .grid-cards {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 15px;
-    }
-
-    .card, .card-2, .card-4, .card-tips {
-        padding: 15px;
-    }
-
-    h1, h2 {
-        font-size: 90%;
-    }
-}
-
-
 /*Tela 1440 × 900 */
 @media (min-width: 1367px) and (max-width: 1440px) {
 
@@ -331,125 +304,70 @@ footer {
 }
 
 
-@media (min-width: 1921px) and (max-width: 2560px) {
+/*Tela 2560 × 1440*/
+@media (min-width: 1441px) and (max-width: 2560px) {
+
     body {
         font-size: 18px;
-        max-width: 2560px;
     }
 
-    /* Header adaptado */
-    .main-header {
-        padding: 1.5rem 4rem;
-        background-color: #004a9e;
+    .sidebar {
+        width: 300px;
+        padding: 30px;
     }
 
-    .logo-area span {
-        font-size: 2rem; /* Aumentar fonte da logo */
-    }
-
-    .logo-area img {
-        width: 60px; /* Aumentar tamanho da logo */
-        height: 60px;
-    }
-
-    /* Navegação superior */
-    .top-nav ul {
-        gap: 12rem; /* Mais espaço entre itens */
-    }
-
-    .top-nav a {
-        font-size: 1.2rem; /* Texto maior */
-        padding: 0.8rem 1.5rem;
-    }
-
-    .login-button {
-        padding: 0.8rem 2rem;
-        font-size: 1.2rem;
-        border-radius: 8px;
-    }
-
-    /* Layout principal */
-    main {
-        min-height: calc(100vh - 200px); /* Altura proporcional */
-    }
-
-    /* Sidebar mais ampla */
-    aside {
-        width: 320px; /* Sidebar mais larga */
-        padding: 2rem;
-        gap: 2.5rem;
-    }
-
-    aside h1 {
-        font-size: 2.5rem; /* Título maior */
-        padding: 1.5rem;
-    }
-
-    .side-nav a {
-        font-size: 1.3rem;
-        padding: 1rem 1.5rem;
-        gap: 1rem;
-    }
-
-    .side-nav img {
-        width: 28px;
-        height: 28px;
-    }
-
-    /* Dashboard principal */
     .dashboard {
-        flex: 1;
-        padding: 3rem 4rem;
-        border-radius: 12px;
+        max-width: 1800px;
     }
 
-    .dashboard .title h1 {
-        font-size: 3rem; /* Título muito maior */
-        margin-bottom: 4rem;
-    }
-
-    .dashboard .title h2 {
-        font-size: 1.8rem;
-    }
-
-    /* Grid de cards otimizado */
     .grid-cards {
+        gap: 30px;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-        margin-top: 2.5rem;
     }
 
-    .grid-cards > div {
-        padding: 1.8rem;
-        border-radius: 12px;
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .card, .card-2, .card-4, .card-tips {
+        padding: 30px;
+        font-size: 1.2rem;
     }
 
-    .card {
-        font-size: 1.8rem;
-    }
-
-    /* Conteúdo dentro dos cards */
-    .tips-title, .tips-value {
-        font-size: 1.4rem;
-        margin: 0.5rem 0;
-    }
-
-    /* Footer adaptado */
-    footer {
-        padding: 2rem;
-        font-size: 1.1rem;
-        background-color: #333;
-        color: #fff;
-    }
-
-    /* Ajustes de espaçamento geral */
-    * {
-        line-height: 1.6;
+    h1 {
+        font-size: 2.4rem;
     }
 }
 
+
+/*Tela 3840 × 2160*/
+@media (min-width: 2561px) {
+
+    body {
+        font-size: 22px;
+    }
+
+    .sidebar {
+        width: 380px;
+        padding: 40px;
+    }
+
+    .dashboard {
+        max-width: 2400px;
+        padding: 40px;
+    }
+
+    .grid-cards {
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+
+    .card, .card-2, .card-4, .card-tips {
+        padding: 40px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}

@@ -7,7 +7,8 @@
 O fluxograma apresentado na figura 1 mostra o fluxo de interação do usuário pelas telas do sistema. Cada uma das telas deste fluxo é detalhada na seção de Protótipo de baixa fidelidade que se segue.
 
   
-<img width="1170" height="799" alt="Userflow-AquaPlanner" src="https://github.com/user-attachments/assets/aa400964-131b-4473-a3c4-f7b49e85341d" />
+
+![user  flow](https://github.com/user-attachments/assets/821ac489-8944-412b-9597-260d83097731)
 
   
 <figure> 
@@ -60,9 +61,10 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <hr>
 
 <h3><b>Tela - Homepage</b></h3>
-<p>É a tela inicial que o usuário visualizará ao acessar o site. Nela o usuário poderá interagir com o dashboard contendo todas as informações sobre seu consumo de água, terá uma parte dedicada ao controle de consumo, como os registros e metas também. As abas acima ajudarão os usuários a serem redirecionados ao locais que desejam de forma rápida, ele  poderá voltar ao início (homepage) sempre que quiser, saber um pouco sobre a história do AquaPlanner em "sobre nós", poderá ser redirecionado para a tela de cadastro na aplicação e a aba de "fazer login", onde o usuário será levado a tela para preencher seu email e senha.</p>
+<p>É a tela inicial que o usuário visualizará ao acessar o site. Nela o usuário poderá interagir com o dashboard contendo todas as informações sobre seu consumo de água, terá uma parte dedicada ao controle de consumo, como os registros e metas também. As abas acima ajudarão os usuários a serem redirecionados ao locais que desejam de forma rápida, ele poderá voltar ao início (homepage) sempre que quiser, poderá ser redirecionado para a tela de cadastro onde poderá criar uma conta e a aba de "fazer login", onde o usuário será levado a tela para preencher seu email e senha.</p>
 
-<img width="740" height="480" alt="Homepage" src="https://github.com/user-attachments/assets/346e6e4c-f28c-4284-a3d0-4cb2e10c1455" />
+<img width="2732" height="1536" alt="Captura de tela 2025-12-04 - 20 54 23" src="https://github.com/user-attachments/assets/6b492690-7777-429d-b0bf-2d9a99c579bb" />
+
 
   
 <figure> 
@@ -71,12 +73,11 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <hr>
 
 <h3><b>Tela - Cadastro de usuário</b></h3>
-<p>É a tela que permite ao usuário registrar-se em um sistema. Na parte de cadastro, o usuário preencherá suas informações pessoais e logo em seguida, apertando o botão "entrar" será redirecionado para a homepage já com sua conta criada e logada no AquaPlanner.</p>
+<p>É a tela que permite ao usuário registrar-se no sistema. Na parte de cadastro, o usuário preencherá suas informações pessoais e logo em seguida, apertando o botão "entrar" será redirecionado para a homepage já com sua conta criada e logada no AquaPlanner.</p>
+
+<img width="4098" height="2304" alt="Captura de tela 2025-12-04 - 20 55 30" src="https://github.com/user-attachments/assets/57f3df7f-1e8e-40ba-972e-ca61c9f002b2" />
 
 
-<img width="736" height="479" alt="Cadastro" src="https://github.com/user-attachments/assets/f6d03732-d09e-4d38-98ef-a614d9ae5a2a" />
-
-  
 <figure>  
     <figcaption>Figura 4 - Tela de Cadastro      
 </figure> 
@@ -85,27 +86,28 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <h3><b>Tela – Login</b></h3>
 <p>A tela de Login apresenta campos para a inserção do e-mail e da senha, junto dos links diretos para recuperação de senha e cadastro de novo usuário. </p>
 
-<img width="739" height="476" alt="Login" src="https://github.com/user-attachments/assets/5865f6b5-ffcc-47c5-ae39-f274f8fb3f12" />
-
 <figure> 
-    <figcaption>Figura 5 - Tela de acesso à conta do usuário
-</figure>
+  <img width="2523" height="1313" alt="Captura de Tela 2025-12-04 às 20 48 29" src="https://github.com/user-attachments/assets/2d961e3a-f061-4d13-9696-7e897711891c" />
+  <figcaption>Figura 2 - Esrutura padrão do site</figcaption>
+</figure> 
 <hr>
 
 <h3><b>Tela – Recuperação de senha via e-mail</b></h3>
 <p>A tela de recuperação de senha apresenta uma breve mensagem explicativa, junto de um campo para inserção do e-mail que deseja recuperar.</p>
   
-<img width="743" height="480" alt="Recuperação de senha" src="https://github.com/user-attachments/assets/f36347c2-c9fc-4667-aaea-342eea2c0740" />
 
-<figure> 
-    <figcaption>Figura 6 - Tela de recuperação de senha do usuário
+<figure>
+  <img width="2538" height="1312" alt="Captura de Tela 2025-12-04 às 20 53 52" src="https://github.com/user-attachments/assets/14ebd32c-05c6-4b6d-8e00-bbab1c08ccd3" />
+  <figcaption>Figura 6 - Tela de recuperação de senha do usuário
 </figure>
-<hr> 
+<hr>
+
 
 <h3><b>Tela – Impacto ambiental</b></h3>
-<p>Exibe gráficos interativos que mostram o consumo diário, semanal e mensal de água. Ajuda o usuário a acompanhar metas e entender seu impacto ambiental de forma clara e acessível.</p>
+<p>Exibe um quadro comparativo. Ajuda o usuário analisar seu impacto ambiental pessoal com relação a seu consumo. </p>
 
-<img width="740" height="482" alt="Impacto Ambiental" src="https://github.com/user-attachments/assets/4330893a-814e-4197-aaff-607a39b2bc42" />
+![Impacto ambiental](https://github.com/user-attachments/assets/5fb25383-5c75-4729-b989-38376be9766b)
+
 
 <figure> 
     <figcaption>Figura 7 - Tela de impacto ambiental pessoal do usuário
@@ -114,7 +116,7 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
   <h3><b>Tela – Registro de consumo</b></h3>
 <p>É a tela que permite ao usuário inserir seu consumo no sistema. Nesta interface o usuário poderá registrar a quantidade de água consumida pelo período mensal.  </p>
   
-  <img width="741" height="529" alt="Registro consumo" src="https://github.com/user-attachments/assets/5b216c52-4a9c-4c3e-b63a-3f95717f3582" />
+![registro de consumo](https://github.com/user-attachments/assets/0ddebd4a-f403-4e1e-adf2-e42de1e33762)
 
 <figure> 
     <figcaption>Figura 8 - Tela de registro de consumo do usuário
@@ -122,9 +124,10 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <hr> 
 
   <h3><b>Tela – Gráficos de consumo</b></h3>
-<p>Exibe gráficos interativos que mostram o consumo diário, semanal e mensal de água. Ajuda o usuário a acompanhar metas e entender seu impacto ambiental de forma clara e acessível.   </p>
+<p>Exibe gráficos interativos que mostram o consumo diário, semanal e mensal de água. Ajuda o usuário a acompanhar metas e entender seu consumo de forma clara e acessível.   </p>
   
-<img width="744" height="482" alt="Gráficos" src="https://github.com/user-attachments/assets/c1519694-2688-4657-ac5a-9af5e6ac6dc6" />
+
+<img width="1459" height="748" alt="Captura de Tela 2025-12-03 às 19 42 43" src="https://github.com/user-attachments/assets/4cfa6515-15e0-4189-a7be-65aefe3a8f52" />
 
 <figure> 
     <figcaption>Figura 9 - Tela de Gráficos de consumo
@@ -132,9 +135,10 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
  <hr>
 
   <h3><b>Tela – Dicas de economia de água</b></h3>
-<p>Apresenta sugestões práticas para reduzir o desperdício em atividades domésticas. As dicas são ilustradas com ícones e adaptadas para diferentes perfis de usuários. </p>
+<p>Apresenta sugestões práticas para reduzir o desperdício em atividades domésticas. As dicas são ilustradas com ícones. </p>
 
-  <img width="738" height="481" alt="Dicas" src="https://github.com/user-attachments/assets/695165bc-b2fb-4f4b-9d7c-60f14d39668a" />
+ <img width="1459" height="748" alt="Captura de Tela 2025-12-03 às 19 43 33" src="https://github.com/user-attachments/assets/d153d914-fa7e-4100-9a55-cbcd636bf60c" />
+
 
 <figure> 
     <figcaption>Figura 10 - Tela de dicas de economia de água
@@ -144,10 +148,11 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
   <h3><b>Tela – Interação entre usuários</b></h3>
 <p>O objetivo dessa tela é estimular a troca de experiências sustentáveis entre os usuários, incentivando o aprendizado coletivo e reforçando hábitos de economia de água por meio de interação social, curtidas, comentários e compartilhamentos. </p>
 
-  <img width="739" height="479" alt="Chat" src="https://github.com/user-attachments/assets/e7e6fa3d-aead-4967-84e4-aa3cdd334442" />
-  
+ 
+  <img width="1919" height="942" alt="tela de interação de usuarios" src="https://github.com/user-attachments/assets/9db07dab-55f0-46b2-97c9-72c70f425103" />
+
 <figure> 
-    <figcaption>Figura 11 - Tela de chat aberto para interação dos usuários
+    <figcaption>Figura 11 - Tela de interação entre usuários
 </figure>
  <hr>
 
@@ -155,7 +160,8 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <p>Essa interface serve para acompanhar o progresso do usuário na economia de água, mostrando metas, conquistas, estímulos motivacionais e desafios.
 A ideia é engajar o usuário por meio de gamificação (medalhas e níveis) e criar uma experiência positiva de consciência ambiental. </p>
 
-<img width="738" height="477" alt="Perfil" src="https://github.com/user-attachments/assets/bd65226a-3092-4da8-a230-09a7be363f8d" />
+<img width="1916" height="945" alt="tela de perfil" src="https://github.com/user-attachments/assets/88213db1-badb-498c-9da3-46c25a844172" />
+
 
 <figure> 
     <figcaption>Figura 12 - Tela de perfil de usuário e conquistas

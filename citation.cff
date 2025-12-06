@@ -1,29 +1,27 @@
-message: Please cite this software using these metadata.
-title:
-authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+title: AquaPlanner
+authors:  
+  - family-names: Freitas
+    given-names: Arthur
+  - family-names: Augusta
+    given-names: Bárbara
+  - family-names: Maria G. Lázaro
+    given-names: Elen
+  - family-names: Gabriela
+    given-names: Maria
+  - family-names: Lamas Galvão
+    given-names: Matheus
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Soares Rodrigues
+    given-names: EdWaldo
 keywords:
-  - 
-  - 
-repository-code: 
+  - Água
+  - Sustentabilidade
+  - Economia
+  - Planejamento
+  - Pegada Ecológica
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t7-pmv-ads-2025-2-e1-proj-web-t7-grupo3/
 version: 1.0.0
-date-released: 2023-10-31
+
+date-released: 2025-12-07
+

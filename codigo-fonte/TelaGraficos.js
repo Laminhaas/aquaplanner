@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const registros = JSON.parse(dadosSalvos);
                 
                 return registros.map(registro => ({
+               
                     timestamp: registro.timestamp || (registro.data ? `${registro.data}T00:00:00` : null),
                     litros: Number(registro.litros),
                     tipo: registro.tipo
@@ -99,6 +100,56 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = ultimos9Dias.map(dataStr => consumoPorDia[dataStr]);
 
         return { labels, data };
+    }
+    
+  
+    function processarDadosSemanaisParaGrafico(registros) {
+      
+        const registrosOrdenados = [...registros].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+        
+        if (registrosOrdenados.length === 0) {
+            return [];
+        }
+        
+        const semanas = [];
+        let consumoSemanalAtual = 0;
+        
+       
+        let dataInicio = new Date(registrosOrdenados[0].timestamp);
+        dataInicio.setHours(0, 0, 0, 0);
+
+        let finalDaSemana = new Date(dataInicio);
+        finalDaSemana.setDate(finalDaSemana.getDate() + 6); 
+
+        registrosOrdenados.forEach(registro => {
+            const dataRegistro = new Date(registro.timestamp);
+            const litros = registro.litros;
+            
+          
+            if (dataRegistro <= finalDaSemana) {
+                consumoSemanalAtual += litros;
+            } else {
+               
+                semanas.push(consumoSemanalAtual);
+                
+              
+                dataInicio = new Date(finalDaSemana);
+                dataInicio.setDate(dataInicio.getDate() + 1);
+                
+            
+                finalDaSemana = new Date(dataInicio);
+                finalDaSemana.setDate(finalDaSemana.getDate() + 6);
+            
+                consumoSemanalAtual = litros;
+            }
+        });
+
+       
+        if (consumoSemanalAtual > 0 || semanas.length === 0) {
+            semanas.push(consumoSemanalAtual);
+        }
+        
+        return semanas.slice(-10); 
     }
     
     
@@ -166,6 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const dadosDiariosProcessadosObj = processarDadosDiariosParaGrafico(registrosBrutos);
     const dadosMensaisProcessados = processarDadosMensaisParaGrafico(registrosBrutos);
+   
+    const dadosSemanaisProcessados = processarDadosSemanaisParaGrafico(registrosBrutos);
     
     const consumoHoje = calcularConsumoDiaMaisRecente(registrosBrutos);
     atualizarCardMeta(consumoHoje, META_DIARIA_LITROS);
@@ -178,13 +231,17 @@ document.addEventListener('DOMContentLoaded', function() {
         ? dadosDiariosProcessadosObj.labels
         : ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9'];
 
-
-    const dadosConsumoSemanal = obterDadosDoLocalStorage(localStorageKeys.semanal, dadosSemanalPadrao);
+   
+    const dadosConsumoSemanal = (dadosSemanaisProcessados.some(v => v > 0)) 
+        ? dadosSemanaisProcessados 
+        : obterDadosDoLocalStorage(localStorageKeys.semanal, dadosSemanalPadrao);
     
     const dadosConsumoMensal = (dadosMensaisProcessados.some(v => v > 0)) 
         ? dadosMensaisProcessados 
         : obterDadosDoLocalStorage(localStorageKeys.mensal, dadosMensalPadrao);
-    
+        
+   
+    const labelsSemanais = Array.from({length: dadosConsumoSemanal.length}, (_, i) => `Semana ${i + 1}`);
    
     function showChartFromHash() {
 
@@ -268,7 +325,8 @@ document.addEventListener('DOMContentLoaded', function() {
         new Chart(ctxSemanal, {
             type: 'bar',
             data: {
-                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9', 'Semana 10'],
+             
+                labels: labelsSemanais,
                 datasets: [{
                     label: 'Consumo (Litros)',
                     data: dadosConsumoSemanal,
@@ -317,4 +375,6 @@ document.addEventListener('DOMContentLoaded', function() {
             itemGraficos.classList.toggle('active');
         });
     }
+
+    
 });
