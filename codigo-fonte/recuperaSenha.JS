@@ -1,5 +1,5 @@
 function getUsers() {
-    return JSON.parse(localStorage.getItem('users') || '[]');
+    return JSON.parse(localStorage.getItem('usuarioCadastrado') || '[]');
 }
 
 document.getElementById('enviar').addEventListener('click', function(e) {
