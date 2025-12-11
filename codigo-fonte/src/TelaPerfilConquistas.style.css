@@ -1,0 +1,304 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+/* >>> AJUSTE PARA TELA CHEIA <<< */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #7AA3CD;
+  color: #333;
+  font-size: 14px;
+  min-height: 100vh;        /* garante altura mínima da janela */
+  display: flex;            /* body em coluna: topo, main, rodapé */
+  flex-direction: column;
+}
+
+/* TOPO */
+.topo {
+  background-color: #004a9e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  gap: 15px;
+}
+
+.topo .logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* CONTAINER GERAL */
+.container {
+  display: flex;
+  flex: 1;          /* ocupa todo espaço entre topo e rodapé */
+}
+
+/* ============ BARRA LATERAL (NOVA) ============ */
+.sidebar {
+  width: 260px;
+  background-color: #004a9e;
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+}
+
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+
+.side-nav a > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-nav a:hover {
+  background-color: #0056b3;
+}
+
+.side-nav li.active > a,
+.sidebar li.ativo > a {
+  background-color: #ffffff;
+  color: #004a9e !important;
+  font-weight: bold;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+  flex: 1;
+  padding: 20px 40px;
+  background-color: #ffffff;
+}
+
+/* PERFIL */
+.perfil {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.perfil-info {
+  background-color: #004a9e;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  color: white;
+}
+
+.perfil-info .foto-usuario {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.perfil-info button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 7px;
+  border: none;
+  border-radius: 6px;
+  background-color: #7AA3CD;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 13px;
+}
+
+.perfil-info button:hover {
+  background-color: #ffffff;
+}
+
+.perfil-texto {
+  background-color: #7AA3CD;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 2;
+  min-width: 300px;
+  font-size: 14px;
+}
+
+/* CONQUISTAS */
+.conquistas {
+  background-color: #7AA3CD;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.icones-conquistas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.conquista {
+  text-align: center;
+  flex: 1 1 120px;
+  min-width: 120px;
+}
+
+.conquista img {
+  width: 60px;
+  height: 60px;
+}
+
+/* BARRA DE PROGRESSO */
+.barra-progresso {
+  background-color: #0056b3;
+  border-radius: 10px;
+  height: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.progresso {
+  background-color: #2a9d8f;
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* MENSAGENS E DESAFIOS */
+.mensagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mensagem-estimulo,
+.desafio-especial {
+  background-color: #7AA3CD;
+  padding: 18px;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 280px;
+  font-size: 14px;
+}
+
+/* RODAPÉ */
+.rodape {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.3rem;
+  font-size: 12px;
+}
+
+/* RESPONSIVIDADE – TABLETS */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .conquista img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* RESPONSIVIDADE – CELULARES MÉDIOS */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .side-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .side-nav a {
+    flex-direction: column;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .conteudo {
+    padding: 20px;
+  }
+
+  .perfil {
+    flex-direction: column;
+  }
+
+  .conquista img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .barra-progresso {
+    height: 8px;
+  }
+}
+
+/* RESPONSIVIDADE – CELULARES PEQUENOS */
+@media (max-width: 480px) {
+  .side-nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-items: center;
+  }
+
+  .side-nav a {
+    font-size: 0.75rem;
+  }
+
+  .perfil-info button {
+    font-size: 12px;
+  }
+
+  .conquista img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Conquista ativa */
+.conquista.ativa {
+  border: 2px solid #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(42, 157, 143, 0.7);
+  transform: scale(1.03);
+  transition: 0.2s;
+}

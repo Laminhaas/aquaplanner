@@ -1,0 +1,237 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+body {
+  background-color: #7AA3CD;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPO / HEADER */
+header {
+  background-color: #004a9e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  width: 40px;
+  height: 40px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav li {
+  display: inline-block;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr 0.9fr;
+  gap: 20px;
+  padding: 20px 40px;
+  flex: 1;
+}
+
+/* CAIXA DE DIÁLOGO */
+.caixa-dialogo {
+  background-color: #6c93c2;
+  border-radius: 10px;
+  padding: 18px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.caixa-dialogo h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.caixa-dialogo .criar-postagem {
+  width: 100%;
+  padding: 10px;
+  background-color: #185b63;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.caixa-dialogo .criar-postagem:hover {
+  background-color: #13474d;
+}
+
+.caixa-dialogo .formulario {
+  background-color: #d4e4e8;
+  border-radius: 8px;
+  padding: 12px;
+  color: #000;
+}
+
+.caixa-dialogo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.caixa-dialogo textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #c0cbd1;
+  font-size: 13px;
+}
+
+/* POSTAGENS */
+.postagens {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 430px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.postagens::-webkit-scrollbar {
+  width: 8px;
+}
+.postagens::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+.postagens::-webkit-scrollbar-thumb {
+  background: #9bb6d6;
+  border-radius: 10px;
+}
+
+.post {
+  background-color: #f4f6f7;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.post .perfil {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.post .perfil img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.post .perfil h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.post p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.post .acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* Botão excluir */
+.btn-remover {
+  margin-left: auto;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #03010154;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-remover:hover {
+  background-color: #b99d9d75;
+}
+
+/* ATIVIDADES */
+.atividades {
+  background-color: #6c93c2;
+  border-radius: 10px;
+  padding: 16px;
+  color: #fff;
+}
+
+.atividades h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.atividades ul {
+  list-style: none;
+}
+
+.atividades li {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+/* RODAPÉ */
+footer {
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .postagens {
+    max-height: none;
+  }
+}

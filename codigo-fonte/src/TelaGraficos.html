@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos de Consumo - AquaPlanner</title>
+<link rel="stylesheet" href="TelaGraficos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body>
+    
+    <header class="main-header">
+        <div class="logo-area">      
+        <img width="40" height="40" src="imgs/save.png" alt="Logo">
+        <span>AquaPlanner</span>
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html" class="login-button">Faça seu login</a></li>
+            </ul>
+        </nav>      
+    </header>
+
+    <div class="container">
+       <aside class="sidebar">
+    <nav class="side-nav">
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <span><img width="40" height="40" src="imgs/dashboard.png" alt="Dashboard"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="RegistrodeConsumo.html">
+                    <span><img width="40" height="40" src="imgs/water-drop.png" alt="Registro de Consumo"></span>
+                    <span>Registro de consumo</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="TelaDicas.html">
+                    <span><img width="40" height="40" src="imgs/idea.png" alt="Dicas"></span>
+                    <span>Dicas</span>
+                </a>
+            </li>
+            
+        <nav class="side-nav">
+    <ul>
+        <li class="has-submenu active"> 
+            <a href="#graficos-toggle">
+                <span><img width="40" height="40" src="imgs/bars.png" alt="Gráficos de Consumo"></span>
+                <span>Gráficos de Consumo</span>
+            </a>
+            
+            <ul class="submenu">
+                <li class="active-submenu"> 
+                    <a href="TelaGraficos.html#diario">
+                        <span>+</span>
+                        <span>Consumo Diário</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="TelaGraficos.html#semanal">
+                        <span>+</span>
+                        <span>Consumo Semanal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="TelaGraficos.html#mensal">
+                        <span>+</span>
+                        <span>Consumo Mensal</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        </ul>
+</nav>
+            <li>
+              <a href="ImpactoAmbiental.html">
+                    <span><img width="45" height="45" src="imgs/carbon-footprint.png" alt="Impacto Ambiental"></span>
+                    <span>Impacto Ambiental</span>
+                </a>
+            </li>
+
+            <li>
+              <a href="TelaPerfilConquista.html">
+                    <span><img width="45" height="45" src="imgs/user.png" alt="Perfil"></span>
+                    <span>Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+              </aside>
+
+      <main class="main-content">
+         <h1>Gráficos de Consumo</h1>            
+            <div class="content-body">                
+            <section class="charts-container">                   
+            <div id="diario" class="chart-wrapper">
+        <h2>Consumo Diário</h2>
+            <div class="chart-placeholder">
+            <canvas id="graficoDiario"></canvas>
+        </div>
+        </div>
+        <div id="semanal" class="chart-wrapper">
+        <h2>Consumo Semanal</h2>                    
+           <div class="chart-placeholder">
+           <canvas id="graficoSemanal"></canvas>
+        </div>
+        </div>   
+        <div id="mensal" class="chart-wrapper">
+        <h2>Consumo Mensal</h2>
+           <div class="chart-placeholder">
+           <canvas id="graficoMensal"></canvas>
+        </div>
+        </div>
+                    
+        </section>
+
+            <aside class="goal-card">
+                <div class="goal-content">
+                    <span><img width="70" height="70" src="imgs/target-achieve.png" alt="Meta de consumo diário"></span>
+                    <p class="goal-title">Meta - Diária</p>
+                    <p class="goal-value">120 L</p>
+                </div>
+            </aside>                
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; Copyright 2025 AquaPlanner | Todos os direitos reservados.</p>
+    </footer>
+
+<script src="TelaGraficos.js"></script>
+
+</body>
+</html>

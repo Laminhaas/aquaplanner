@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+</html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Dicas de Economia - AquaPlanner</title>
+    <link rel="stylesheet" href="TelaDicas.css">
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">      
+        <img width="40" height="40" src="imgs/save.png" alt="Logo">
+        <span>AquaPlanner</span>
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html" class="login-button">Faça seu login</a></li>
+            </ul>
+        </nav>      
+    </header>
+
+    <div class="container">
+       <aside class="sidebar">
+    <nav class="side-nav">
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <span><img width="40" height="40" src="imgs/dashboard.png" alt="Dashboard"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="RegistrodeConsumo.html">
+                    <span><img width="40" height="40" src="imgs/water-drop.png" alt="Registro de Consumo"></span>
+                    <span>Registro de consumo</span>
+                </a>
+            </li>
+            
+            <li class="active">
+                <a href="TelaDicas.html">
+                    <span><img width="40" height="40" src="imgs/idea.png" alt="Dicas"></span>
+                    <span>Dicas</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="TelaGraficos.html">
+                    <span><img width="40" height="40" src="imgs/bars.png" alt="Gráficos de Consumo"></span>
+                    <span>Gráficos de Consumo</span>
+                </a>
+            </li>
+
+            <li>
+              <a href="ImpactoAmbiental.html">
+                    <span><img width="45" height="45" src="imgs/carbon-footprint.png" alt="Impacto Ambiental"></span>
+                    <span>Impacto Ambiental</span>
+                </a>
+            </li>
+
+            <li>
+              <a href="TelaPerfilConquista.html">
+                    <span><img width="45" height="45" src="imgs/user.png" alt="Perfil"></span>
+                    <span>Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+   
+
+    <main class="main-content" style="display: flex; flex-direction: column; align-items: center;">
+   <span><h1>Dicas de Economia</h1></span> 
+    <div class="tips-container" style="width: 100%; max-width: 650px;"> 
+    
+<div class="progress-container">
+    <h3>Seu Progresso de Economia</h3>
+    <div class="progress-bar-outline">
+        <div class="progress-bar-fill" style="width: 0%;"></div>
+    </div>
+    <p id="progress-text">0 de 5 dicas aplicadas</p>
+    
+    <button id="reset-progress-button" class="reset-button">
+        Limpar Progresso
+    </button>
+    </div>
+        <section class="tips-list-vertical" style="display: flex; flex-direction: column; gap: 1rem;">
+            
+            <div class="tip-item" data-tip-id="1">
+                <span><img width="40" height="40" src="imgs/water-tap.png" alt="Torneira"></span>
+                <p>Fechar a torneira ao escovar os dentes</p>
+                <span class="info-icon">i</span> <span class="checkmark">&#10003;</span>
+            </div>
+            
+            <div class="tip-item" data-tip-id="2">
+                <span><img width="40" height="40" src="imgs/paint-bucket.png" alt="Balde"></span>
+                <p>Use balde em vez de mangueira</p>
+                <span class="info-icon">i</span> <span class="checkmark">&#10003;</span>
+            </div>
+            
+            <div class="tip-item" data-tip-id="3">
+                <span><img width="40" height="40" src="imgs/laundry.png" alt="Máquina de lavar"></span>
+                <p>Reaproveite água da máquina de lavar</p>
+                <span class="info-icon">i</span> <span class="checkmark">&#10003;</span>
+            </div>
+            
+            <div class="tip-item" data-tip-id="4">
+                <span><img width="40" height="40" src="imgs/broken-pipe.png" alt="Vazamento"></span>
+                <p>Verifique vazamentos regularmente</p>
+               <span class="info-icon">i</span> <span class="checkmark">&#10003;</span>
+            </div>
+            
+            <div class="tip-item" data-tip-id="5">
+                <span><img width="40" height="40" src="imgs/shower.png" alt="Chuveiro"></span>
+                <p>Banhos de até 5 minutos</p>
+                <span class="info-icon">i</span> <span class="checkmark">&#10003;</span>
+            </div>
+            
+            </section> 
+        <button class="more-tips-button" style="display: block; margin: 0 auto; margin-top: 1.5rem;">Ver mais dicas</button>
+          </main> 
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; Copyright 2025 AquaPlanner | Todos os direitos reservados.</p>
+    </footer>
+
+<div id="tooltip" class="tooltip"></div>
+    
+<script src="TelaDicas.js"></script>
+
+</body>
+</html>

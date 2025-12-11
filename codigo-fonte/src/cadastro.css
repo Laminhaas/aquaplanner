@@ -1,0 +1,440 @@
+*{ margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Verdana, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, button {
+  max-width: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho e rodapé */
+header{
+  background-color: #0056b3;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+header span{
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Layout principal */
+main{
+  display: flex;
+  flex: 1;
+}
+
+/* Aside lateral esq */
+.conteudo aside {  
+   display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 2rem;
+    justify-content: center;
+    width: 25%;
+    background-color: #f0eeee;
+    color: #000;
+}
+
+/* Aside título*/
+aside h1 {
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+/*Aside segundo texto*/
+aside h2 {
+    font-size: 25px;
+    padding: 20px;
+
+    /*tipografia*/
+    color: #000;
+    text-align: center;
+    align-items: center;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+aside button{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 20%;
+  background-color: transparent, 0.5 ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+
+}
+
+aside button:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #0056b3; 
+}
+
+/* Conteúdo principal */
+.Cadastro{
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 5px;
+  margin-left: 50px;
+}
+
+.Cadastro h1{
+    display: block;
+    width: 80%;
+    height: 80px;
+    flex-shrink: 0;
+    align-items: center;
+    line-height: normal;
+
+/*tipografia*/
+color: #000;
+text-align: center;
+font-size: 30px;
+font-weight: auto;
+line-height: normal;
+}
+
+.Cadastro input{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  width: 80%;
+  padding: 7px 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-color: transparent;
+  font-size: 80%;
+}
+
+input:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #83afff; /* leve destaque */
+}
+
+input:focus{
+  border-color: #6C9AC9;
+  box-shadow: 0 0 8px (0, 191, 255, 0.4);
+}
+
+/*ERROS (JAVASCRIPT*/
+.error p{
+  margin: 5px 0;
+}
+
+.error p::first-letter{
+  text-transform: uppercase;
+}
+
+/* Rodapé fixo no fim */
+footer{
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Para telas menores que 1024px (tablets) */
+  @media
+  (max-width: 1023px)
+  (min-width: 768px)
+{
+
+.conteudo aside {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  
+  aside h1, aside h2, .Cadastro h1 {
+    font-size: 1.5rem;
+  }
+
+  aside button{
+    margin-bottom: 20px;
+  }
+
+  .Cadastro input {
+    width: 100%;
+  }
+}
+
+/* Para telas menores que 768px (smartphones) */
+@media (max-width: 767px){
+  main {
+    flex-direction: column;
+}
+
+  .Cadastro {
+    width: 100%;
+    float: none;
+    align-content: center;
+    margin-left: 30px;
+}
+
+  .Cadastro input {
+    width: 80%;
+  }
+
+  .conteudo aside {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  
+  aside h1, aside h2, .Cadastro h1 {
+    font-size: 1.5rem;
+  }
+
+  aside button{
+    margin-bottom: 20px;
+  }
+}
+
+/* Ajustes para telas muito altas */
+@media (min-height: 1000px) {
+    body {
+        min-height: 100vh;
+    }
+    
+    .conteudo {
+        min-height: calc(100vh - 140px);
+        align-items: center;
+    }
+}
+
+/* Ajustes para telas muito largas */
+@media (min-width: 2000px) and (max-width: 2559px) {
+    .conteudo {
+        max-width: 1800px;
+    }
+}
+
+/* Para 1440x900 */
+@media (min-width: 1440px) {
+    .conteudo {
+        padding: 70px 50px;
+        gap: 70px;
+        max-width: 1400px;
+    }
+    
+    .Cadastro {
+        padding: 50px 45px;
+        border-radius: 18px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 2.4rem;
+        margin-bottom: 35px;
+    }
+    
+    input {
+        padding: 18px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+    
+    #form {
+        gap: 20px;
+    }
+    
+    aside {
+        padding: 40px;
+        border-radius: 18px;
+    }
+    
+    aside h1 {
+        font-size: 2.2rem;
+    }
+    
+    aside h2 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+    
+    button {
+        padding: 18px 50px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        min-width: 200px;
+    }
+    
+    header {
+        padding: 25px 60px;
+    }
+    
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Para 3840x2160*/
+@media (min-width: 3840px) {
+    .conteudo {
+        padding: 150px 120px;
+        gap: 150px;
+        max-width: 3200px;
+    }
+    
+    .Cadastro {
+        padding: 100px 90px;
+        border-radius: 35px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 4.5rem;
+        margin-bottom: 70px;
+    }
+    
+    input {
+        padding: 35px;
+        font-size: 2rem;
+        border-radius: 15px;
+        border-width: 4px;
+    }
+    
+    #form {
+        gap: 45px;
+    }
+    
+    aside {
+        padding: 90px;
+        border-radius: 35px;
+    }
+    
+    aside h1 {
+        font-size: 4rem;
+        margin-bottom: 30px;
+    }
+    
+    aside h2 {
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+    
+    button {
+        padding: 35px 100px;
+        font-size: 2.2rem;
+        border-radius: 15px;
+        min-width: 400px;
+    }
+    
+    header {
+        padding: 50px 150px;
+    }
+    
+    header img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    header span {
+        font-size: 3.5rem;
+    }
+    
+    footer {
+        padding: 40px;
+        font-size: 1.6rem;
+    }
+    
+    .error {
+        font-size: 1.8rem;
+        padding: 20px;
+    }
+}
+
+
+/* Para 2560x1440 */
+@media (min-width: 2560px) {
+    .conteudo {
+        padding: 100px 80px;
+        gap: 100px;
+        max-width: 2000px;
+    }
+    
+    .Cadastro {
+        padding: 70px 60px;
+        border-radius: 25px;
+    }
+    
+    .Cadastro h1 {
+        font-size: 3.2rem;
+        margin-bottom: 50px;
+    }
+    
+    input {
+        padding: 25px;
+        font-size: 1.4rem;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+    
+    #form {
+        gap: 30px;
+    }
+    
+    aside {
+        padding: 60px;
+        border-radius: 25px;
+    }
+    
+    aside h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    aside h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    button {
+        padding: 25px 70px;
+        font-size: 1.5rem;
+        border-radius: 12px;
+        min-width: 280px;
+    }
+    
+    header {
+        padding: 35px 100px;
+    }
+    
+    header img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    header span {
+        font-size: 2.8rem;
+    }
+    
+    footer {
+        padding: 30px;
+        font-size: 1.2rem;
+    }
+}

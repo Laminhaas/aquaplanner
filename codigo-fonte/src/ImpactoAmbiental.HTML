@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+  <link rel="stylesheet" href="ImpactoAmbiental.css"> <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Seu impacto ambiental no consumo de água.">
+  <title>Seu Impacto Ambiental - AquaPlanner</title>
+  <script src="ImpactoAmbiental.JS" defer></script>
+</head>
+<body> 
+    
+    <header class="main-header">
+        <div class="logo-area">      
+            <img width="40" height="40" src="imgs/save.png" alt="Logo">
+            <span>AquaPlanner</span>
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html" class="login-button">Faça seu login</a></li>
+            </ul>
+        </nav>      
+    </header>
+
+    <div class="container">
+       <aside class="sidebar">
+            <nav class="side-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <span><img width="40" height="40" src="imgs/dashboard.png" alt="Dashboard"></span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="RegistrodeConsumo.html">
+                            <span><img width="40" height="40" src="imgs/water-drop.png" alt="Registro de Consumo"></span>
+                            <span>Registro de consumo</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="TelaDicas.html">
+                            <span><img width="40" height="40" src="imgs/idea.png" alt="Dicas"></span>
+                            <span>Dicas</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="TelaGraficos.html">
+                            <span><img width="40" height="40" src="imgs/bars.png" alt="Gráficos de Consumo"></span>
+                            <span>Gráficos de Consumo</span>
+                        </a>
+                    </li>
+
+                    <li class="active"> <a href="ImpactoAmbiental.html">
+                            <span><img width="45" height="45" src="imgs/carbon-footprint.png" alt="Impacto Ambiental"></span>
+                            <span>Impacto Ambiental</span>
+                        </a>
+                    </li>
+
+                    <li>
+                      <a href="TelaPerfilConquista.html">
+                            <span><img width="45" height="45" src="imgs/user.png" alt="Perfil"></span>
+                            <span>Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="titulo">
+                <h1>Seu Impacto Ambiental</h1>
+                <img src="imgs/water-cycle.png" width="100" alt="Ícone ambiental">
+            </section>    
+            
+            <div class="frente">
+                <div class="card">
+                    <h2>Água Economizada</h2>
+                    <img width="160" height="190" src="imgs/water.png" alt="Gota de água">
+                    <p><strong id="consumo-agua-valor">0</strong> litros</p>
+                </div>
+                <div class="card">
+                    <h2>Energia Economizada</h2>
+                    <img width="160" height="190" src="imgs/renewable-energy.png" alt="Energia">
+                    <p><strong id="consumo-energia-valor">0,000</strong> kWh</p>
+                </div>
+                <div class="card">
+                    <h2>Ranking da Economia</h2>
+                    <img width="160" height="190" src="imgs/medal.png" alt="Medalha">
+                    <p><strong id="ranking-posicao-valor">--º</strong> Lugar</p>
+                </div>
+            </div> 
+                
+            <div class="lembrete">
+                <h4><strong>Lembre-se: </strong></h4> 
+                <h5>"Quando o poço está seco, aí nós sabemos o valor da água."</h5> 
+                <h5><i> <span class="benjamin">(Benjamin Franklin, político e cientista)</span></i></b></h5>
+            </div>
+        </main>
+    </div> <footer class="main-footer">
+        <p>&copy; Copyright 2025 AquaPlanner | Todos os direitos reservados.</p>
+    </footer>
+
+<script src="ImpactoAmbiental.js"></script>
+
+</body>
+</html>

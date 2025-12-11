@@ -1,0 +1,131 @@
+
+header {
+    grid-area: Cabeçalho;
+    width: 100%;
+    height: 100px;
+    background-color:  #004a9e;
+    position: fixed;
+    top: 0;
+}
+
+
+footer {
+    grid-area: Rodapé;
+    width: 100%;
+    padding: 24px;
+    background-color: #333;
+    font-size: small;
+    bottom: 0;
+    position: fixed;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f4f7f6;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgb(113, 113, 113);
+    display: grid;
+    place-items: center;
+    margin: 300px auto;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
+    grid-template-areas: "Cabeçalho"
+                        "Conteúdo"
+                        "Rodapé";
+    grid-gap: 10px 10px;
+
+}
+
+
+input {
+    width: 98%;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 1px 1px 4px rgb(113, 113, 113);
+    font-size: medium;
+}
+
+button {
+    background-color: rgb(180, 92, 92);
+    color: #fff;
+    font-size: larger;
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border-style: none;
+    text-shadow: 2px 2px 4px rgb(113, 113, 113);
+}
+
+button:hover {
+    background-color: rgb(178, 61, 61);
+    border-style: none;
+
+}
+
+body form img {
+    display: block;
+    margin: 0 auto;
+    height: 150px;
+}
+
+@media (min-height: 760px) {
+
+    header div h2 img {
+        height: 60px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        display: grid;
+        width: 50%;
+        max-width: 450px;
+        height: 60vh;
+        max-height: 650px;
+        padding: 20px;
+        border: 15px solid #0056b3;
+        background-color: #7AA3CD;
+        box-shadow: 1px 1px 4px rgb(113, 113, 113);
+    }
+}
+
+@media (max-height: 760px) {
+
+    header div h2 img {
+        height: 60px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    form {
+        display: grid;
+        width: 50%;
+        max-width: 450px;
+        height: 450px;
+        padding: 20px;
+        border: 15px solid #0056b3;
+        background-color: #7AA3CD;
+        box-shadow: 1px 1px 4px rgb(113, 113, 113);
+    } 
+}
+
+#pequena {
+    font-size: small;
+}
+
+#media {
+    font-size: medium;
+}
+
+#grande {
+    font-size: larger;
+}
+
+.centralizar {
+    text-align: center;
+}

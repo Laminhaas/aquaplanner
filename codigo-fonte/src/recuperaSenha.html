@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha via E-mail</title>
+    <link rel="stylesheet" href="recuperaSenha.CSS">
+</head>
+    <header>
+
+        <div>
+            <h2><img src="imgs/logo.png" alt="logo_Aquaplanner">AquaPlanner</h2>
+        </div>
+
+    </header>
+<body>
+
+    <form>
+
+        <h2>Redefinição de senha</h2>
+        <div>
+            <p>Para saber sua senha, informe-nos seu e-mail cadastrado que lhe enviaremos uma mensagem contendo sua senha.</p>
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" placeholder="Digite seu e-mail aqui" required>
+        </div>
+        <div>
+            <button id="enviar" type="submit" class="button-enviar">Enviar</button>
+        </div>
+        <div>
+            <button id="cancelar" type="button" class="button-cancelar">Cancelar</button>
+        </div>
+
+    </form>
+
+        <footer>® Copyrigth 2025 AquaPlanner | Todos os direitos reservados.</footer>
+        
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("zmRffkIcQQrSXodj9");
+    </script>
+    <script src="recuperaSenha.JS"></script>
+
+    
+    
+</body>
+</html>

@@ -24,7 +24,7 @@ As telas do sistema seguem um padrão representado pela figura 2, porém com alg
 
 Caixa com rótulo: Logo/Imagem da capa
 
-Menu superior: Início | Sobre Nós | Cadastro | Login;</li>
+Menu superior: Início | Cadastro | Login;</li>
   <li>Bloco 2- Menu lateral (sidebar)
 
 Caixa com rótulo: Perfil (ícone)
@@ -93,7 +93,7 @@ Caixa: © 2025 AquaPlanner | Todos os direitos reservados.</li>
 <hr>
 
 <h3><b>Tela – Recuperação de senha via e-mail</b></h3>
-<p>A tela de recuperação de senha apresenta uma breve mensagem explicativa, junto de um campo para inserção do e-mail que deseja recuperar.</p>
+<p>A tela de recuperação de senha apresenta uma breve mensagem explicativa, junto de um campo para inserção do e-mail que deseja recuperar. A API utlizada pelo grupo tem funcionalidade nesta parte.</p>
   
 
 <figure>

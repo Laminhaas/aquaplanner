@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="RegistrodeConsumo.css"> 
+    <meta name="author" content="rommel">
+    <title>Registre Seu Consumo - AquaPlanner</title>
+</head>
+<body>
+ <header class="main-header">
+        <div class="logo-area">      
+        <img width="40" height="40" src="imgs/save.png" alt="Logo">
+        <span>AquaPlanner</span>
+        </div>
+        <nav class="top-nav">
+           <ul>
+                <li><a href="dashboard.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="index.html" class="login-button">Faça seu login</a></li>
+            </ul>
+        </nav>      
+    </header>
+
+    <div class="container">
+       <aside class="sidebar">
+    <nav class="side-nav">
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <span><img width="40" height="40" src="imgs/dashboard.png" alt="Dashboard"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+             <li class="active">
+                <a href="RegistrodeConsumo.html">
+                    <span><img width="40" height="40" src="imgs/water-drop.png" alt="Registro de Consumo"></span>
+                    <span>Registro de consumo</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="TelaDicas.html">
+                    <span><img width="40" height="40" src="imgs/idea.png" alt="Dicas"></span>
+                    <span>Dicas</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="TelaGraficos.html">
+                    <span><img width="40" height="40" src="imgs/bars.png" alt="Gráficos de Consumo"></span>
+                    <span>Gráficos de Consumo</span>
+                </a>
+            </li>
+
+            <li>
+              <a href="ImpactoAmbiental.html">
+                    <span><img width="45" height="45" src="imgs/carbon-footprint.png" alt="Impacto Ambiental"></span>
+                    <span>Impacto Ambiental</span>
+                </a>
+            </li>
+
+            <li>
+              <a href="TelaPerfilConquista.html">
+                    <span><img width="45" height="45" src="imgs/user.png" alt="Perfil"></span>
+                    <span>Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+   <main class="user">
+    <div class="registro-content">
+        
+        <div class="ilustracao-box">
+            <img src="imgs/pure-water.png" alt="Ilustração de água pura" class="ilustracao-consumo">
+            <p class="ilustracao-titulo">Registro de Consumo de Água</p> 
+        </div>
+
+
+        <form id="ConsumoForm" class="consumo-form">
+            
+            <fieldset>
+                <legend>Detalhes da Medição</legend> <label for="data">Data:</label>
+                <input id="data" placeholder="Selecione a Data" type="date" name="date" required>
+            </fieldset>
+            
+            <fieldset>
+                <label for="litros">Litros:</label>
+                <input id="litros" placeholder="Ex: 2500" type="number" name="litros" required>
+            </fieldset>
+            
+            <fieldset>
+                <label for="tipoConsumo">Especifique Seu Consumo:</label>
+                <select id="tipoConsumo" name="consumo" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="mensal">Mensal</option>
+                    <option value="semestral">Semestral</option>
+                    <option value="diario">Diário</option>
+                </select>
+            </fieldset>
+            
+            <button type="submit">Registrar</button>
+
+        </form>
+    </div>
+    </main>
+    </div> <footer class="main-footer">
+        <p>&copy; Copyright 2025 AquaPlanner | Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="RegistrodeConsumo.js"></script>
+
+ </body>
+</html>
