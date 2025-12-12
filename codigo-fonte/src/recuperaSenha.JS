@@ -22,6 +22,7 @@ document.getElementById('enviar').addEventListener('click', function(e) {
     // Agora indo pra parte do EmailJS
     emailjs.send("service_b8uyw55", "template_hhrysau", {
         to_email: user.email,
+        nome: user.nomeCompleto
         senha: user.senha
     })
     .then(() => {
