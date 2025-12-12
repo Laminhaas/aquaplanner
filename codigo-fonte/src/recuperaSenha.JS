@@ -1,5 +1,5 @@
 function getUsers() {
-    return JSON.parse(localStorage.getItem('usuarioCadastrado') || '[]');
+    return JSON.parse(localStorage.getItem('users') || '[]');
 }
 
 document.getElementById('enviar').addEventListener('click', function(e) {
@@ -22,7 +22,6 @@ document.getElementById('enviar').addEventListener('click', function(e) {
     // Agora indo pra parte do EmailJS
     emailjs.send("service_b8uyw55", "template_hhrysau", {
         to_email: user.email,
-        nome: user.nomeCompleto,
         senha: user.senha
     })
     .then(() => {
