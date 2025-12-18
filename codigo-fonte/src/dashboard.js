@@ -1,4 +1,4 @@
-//MENU RESPONSIVO
+// MENU RESPONSIVO
 const menuToggle = document.getElementById('menu-toggle');
 const topNav = document.querySelector('.top-nav');
 const sidebar = document.querySelector('.sidebar');
@@ -12,7 +12,7 @@ menuToggle.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     atualizarDicaDiaria();
     
-    // verificar se é o primeiro acesso ou se acabou de registrar uma conta
+    // Verificar se é o primeiro acesso ou se acabou de registrar uma conta
     const firstTimeKey = 'primeiroAcesso';
     const hasAccount = localStorage.getItem('usuarioLogado');
     
@@ -70,9 +70,8 @@ function atualizarDicaDiaria() {
     localStorage.setItem('indiceDicaDoDia', indiceDica.toString());
 }
 
-    function resetDashboardCards() {
-    
-     // zerar os valores dos cards
+function resetDashboardCards() {
+    // Zerar os valores dos cards
     const mesRecenteElement = document.getElementById("mesRecente");
     const percElement = document.getElementById("porcentagem");
     const consumoMedioElement = document.getElementById("consumoMedio");
@@ -105,14 +104,14 @@ function initDashboardComDadosReais() {
     // Processar registros para calcular métricas
     const metricas = calcularMetricasDashboard(registros);
     
-    //DOM
+    // Atualizar DOM
     const mesRecenteElement = document.getElementById("mesRecente");
     const percElement = document.getElementById("porcentagem");
     const consumoMedioElement = document.getElementById("consumoMedio");
     const cardTitle = document.getElementById("cardTitle");
     const cardTitle2 = document.getElementById("cardTitle2");
 
-    //CARD 1: Média de consumo mensal, semanal e diário
+    // CARD 1: Média de consumo mensal, semanal e diário
     if (mesRecenteElement) {
         mesRecenteElement.textContent = `${metricas.mediaDiaria} L/dia`;
     }
@@ -131,7 +130,7 @@ function initDashboardComDadosReais() {
         }
     }
 
-    //CARD 2: Comparativo real entre períodos
+    // CARD 2: Comparativo real entre períodos
     if (percElement) {
         percElement.textContent = metricas.variacaoFormatada;
         percElement.style.color = metricas.corVariacao;
@@ -147,7 +146,7 @@ function initDashboardComDadosReais() {
         }
     }
 
-    //CARD 3: Consumo médio e verificação de meta
+    // CARD 3: Consumo médio e verificação de meta
     const metaDiaria = 120; // Meta diária em litros
     const consumoHoje = calcularConsumoHoje(registros);
     const diferencaMeta = metaDiaria - consumoHoje;
@@ -164,7 +163,8 @@ function initDashboardComDadosReais() {
         }
     }
 }
-    function calcularMetricasDashboard(registros) {
+
+function calcularMetricasDashboard(registros) {
     // Organizar registros por tipo e data
     const registrosPorTipo = {
         diario: [],
@@ -174,9 +174,18 @@ function initDashboardComDadosReais() {
 
     // Separar registros por tipo
     registros.forEach(registro => {
-        const tipo = registro.tipo === "semestral" ? "semanal" : registro.tipo;
+        let tipo = registro.tipo || "diario";
+        if (tipo === "semestral") tipo = "semanal";
+        
         if (registrosPorTipo[tipo]) {
             registrosPorTipo[tipo].push({
+                ...registro,
+                data: new Date(registro.data)
+            });
+        } else {
+            console.warn(`Tipo de registro desconhecido: ${tipo}`);
+            // Adiciona como diário por padrão
+            registrosPorTipo.diario.push({
                 ...registro,
                 data: new Date(registro.data)
             });
@@ -239,10 +248,26 @@ function initDashboardComDadosReais() {
 }
 
 function calcularConsumoHoje(registros) {
-    const hoje = new Date().toISOString().split('T')[0];
+    const hoje = new Date();
+    const hojeFormatado = hoje.toISOString().split('T')[0];
+    
     return registros
-        .filter(reg => reg.data === hoje)
-        .reduce((sum, reg) => sum + reg.litros, 0);
+        .filter(reg => {
+            // Normalizar data do registro para comparação
+            let dataRegistro;
+            try {
+                dataRegistro = new Date(reg.data);
+                if (isNaN(dataRegistro.getTime())) {
+                    // Se a data for inválida, tenta converter de string
+                    dataRegistro = new Date(reg.data.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2/$1/$3'));
+                }
+                return dataRegistro.toISOString().split('T')[0] === hojeFormatado;
+            } catch (e) {
+                console.warn(`Data inválida no registro: ${reg.data}`);
+                return false;
+            }
+        })
+        .reduce((sum, reg) => sum + (reg.litros || 0), 0);
 }
 
 function mostrarAlertaMetaExcedida(excesso) {
@@ -290,11 +315,11 @@ function mostrarAlertaMetaExcedida(excesso) {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            ">×</button> `;
+            ">×</button>`;
         
         document.body.appendChild(alerta);
         
-        //evento para fechar o alerta
+        // Evento para fechar o alerta
         document.getElementById('fechar-alerta').addEventListener('click', () => {
             alerta.style.animation = 'slideOut 0.3s ease-out';
             setTimeout(() => {
@@ -315,39 +340,43 @@ function mostrarAlertaMetaExcedida(excesso) {
             }
         }, 10000);
         
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
+        // Adicionar estilos CSS dinamicamente apenas uma vez
+        if (!document.getElementById('alert-styles')) {
+            const style = document.createElement('style');
+            style.id = 'alert-styles';
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
                 }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
+                
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
                 }
-            }
-            
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
+                
+                @keyframes fadeOut {
+                    from {
+                        opacity: 1;
+                    }
+                    to {
+                        opacity: 0;
+                    }
                 }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-            
-            @keyframes fadeOut {
-                from {
-                    opacity: 1;
-                }
-                to {
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    };
-};
+            `;
+            document.head.appendChild(style);
+        }
+    }
+}

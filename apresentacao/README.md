@@ -2,7 +2,9 @@
 
 ## Conjunto de Slides
 
-[Aquaplanner.pptx](https://github.com/user-attachments/files/24008560/Aquaplanner.pptx)
+[Aquaplanner.pdf](https://github.com/user-attachments/files/24137288/Aquaplanner.pdf)
+
+
 
 
 ## Vídeo de apresentação
